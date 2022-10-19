@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg">
@@ -39,6 +40,7 @@
             android:id="@+id/editTextUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:background="@drawable/edit_text_top"
             android:hint="Username"
             android:inputType="textPersonName"
@@ -48,6 +50,7 @@
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:background="@drawable/edit_text_middle"
             android:hint="Email"
             android:inputType="textEmailAddress"
@@ -57,6 +60,7 @@
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:background="@drawable/edit_text_middle"
             android:hint="Password"
             android:inputType="textPassword"
@@ -65,6 +69,7 @@
             android:id="@+id/editTextCnfPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:background="@drawable/edit_text_middle"
             android:hint="Password"
             android:inputType="textPassword"
@@ -74,15 +79,16 @@
 
         <Button
             android:id="@+id/buttonRegister"
-            android:layout_width="match_parent"
+            android:layout_width="218dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/button"
             android:foreground="?android:attr/selectableItemBackground"
+            android:backgroundTint="@color/button"
             android:text="SIGN UP"
             android:textAllCaps="false"
-            android:textColor="#FE5295"
-            android:textSize="17sp"/>
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            app:strokeColor="@color/button"/>
 
         <TextView
             android:id="@+id/textViewLogin"
@@ -94,7 +100,7 @@
             android:textAllCaps="true"
             android:textSize="13dp"
             android:textStyle="bold"
-            android:textColor="#FAD0E1"
+            android:textColor="@color/button"
             android:fontFamily="sans-serif"/>
 
     </LinearLayout>

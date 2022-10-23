@@ -3,14 +3,15 @@ package am.solution.weddingplanner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.room.Room;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,10 +20,10 @@ import am.solution.weddingplanner.data.UserDataBase;
 import am.solution.weddingplanner.model.User;
 
 public class RegisterActivity extends AppCompatActivity {
-    EditText editTextUsername, editTextEmail, editTextPassword, editTextCnfPassword;
+    EditText editEmail, editLastName, editFirstName, editUsername,  editPassword, editRole;
     Button buttonRegister;
+    Spinner spinnerRoles;
 
-    TextView textViewLogin;
     private UserDAO userDao;
 
     @Override
@@ -30,19 +31,19 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        editTextUsername = findViewById(R.id.editTextUsername);
-        editTextEmail = findViewById(R.id.editTextEmail);
-        editTextPassword = findViewById(R.id.editTextPassword);
-        editTextCnfPassword = findViewById(R.id.editTextCnfPassword);
+       // spinnerRoles = findViewById(R.id.selectRoleSpinner);
+        editEmail = findViewById(R.id.email_input);
+        editFirstName = findViewById(R.id.firstName_input);
+        editLastName = findViewById(R.id.lastName_input);
+        editUsername = findViewById(R.id.username_input);
+        editPassword = findViewById(R.id.password_input);
+       // editRole = findViewById(R.id.firstName_input);
         buttonRegister = findViewById(R.id.buttonRegister);
 
-        textViewLogin = findViewById(R.id.textViewLogin);
-        textViewLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(RegisterActivity.this, MainActivity.class));
-            }
-        });
+//        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this,
+//                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.roles));
+//        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//       spinnerRoles.setAdapter(myAdapter);
 
         userDao = Room.databaseBuilder(this, UserDataBase.class, "mi-database.db").allowMainThreadQueries()
                 .build().getUserDao();
@@ -50,21 +51,17 @@ public class RegisterActivity extends AppCompatActivity {
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String userName = editTextUsername.getText().toString().trim();
-                String email = editTextEmail.getText().toString().trim();
-                String password = editTextPassword.getText().toString().trim();
-                String passwordConf = editTextCnfPassword.getText().toString().trim();
+                String userName = editUsername.getText().toString().trim();
+                String email = editEmail.getText().toString().trim();
+                String password = editPassword.getText().toString().trim();
+                String firstName = editFirstName.getText().toString().trim();
+                String lastName = editLastName.getText().toString().trim();
 
-                if (password.equals(passwordConf)) {
-                    User user = new User(userName,password,email);
+                    User user = new User(userName,password,email,firstName,lastName);
                     userDao.insert(user);
                     Intent moveToLogin = new Intent(RegisterActivity.this, MainActivity.class);
                     startActivity(moveToLogin);
 
-                } else {
-                    Toast.makeText(RegisterActivity.this, "Password is not matching", Toast.LENGTH_SHORT).show();
-
-                }
             }
         });
     }

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">WeddingPlanner</string>
+    <string-array name="roles">
+        <item>Bride</item>
+        <item>Groom</item>
+        <item>Other</item>
+    </string-array>
 </resources>

@@ -5,20 +5,24 @@
       <map>
         <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.11" />
         <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/drawable/bg.xml" value="0.1" />
+        <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/drawable/btn_background.xml" value="0.1875" />
+        <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/drawable/btn_border.xml" value="0.1" />
         <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/drawable/button.xml" value="0.167" />
         <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/drawable/edit_text_bottom.xml" value="0.159" />
         <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/drawable/edit_text_middle.xml" value="0.159" />
         <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/drawable/edit_text_top.xml" value="0.1" />
+        <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/drawable/ic_add_black_24dp.xml" value="0.1225" />
         <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/layout/activity_home.xml" value="0.15" />
-        <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
+        <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/layout/activity_register.xml" value="0.1875" />
+        <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/layout/fragment_create_task.xml" value="0.1" />
         <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/layout/fragment_guests.xml" value="0.1" />
         <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/layout/fragment_home2.xml" value="0.1" />
         <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/layout/fragment_summary.xml" value="0.1" />
-        <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/layout/fragment_tasks.xml" value="0.1" />
+        <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/layout/fragment_tasks.xml" value="0.18" />
         <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/layout/fragment_vendors.xml" value="0.1" />
         <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/layout/fragment_vendors_fragmet.xml" value="0.1" />
         <entry key="..\:/MSA_project_wedding_planner/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20416666666666666" />

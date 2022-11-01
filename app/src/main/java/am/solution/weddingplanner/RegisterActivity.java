@@ -44,7 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        userDao = Room.databaseBuilder(this, UserDataBase.class, "mi-database.db").allowMainThreadQueries()
+        userDao = Room.databaseBuilder(this, UserDataBase.class, "users.db").allowMainThreadQueries()
                 .build().getUserDao();
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (password.equals(passwordConf)) {
                     User user = new User(userName,password,email);
                     userDao.insert(user);
+                    Toast.makeText(RegisterActivity.this, "Registered! You can log in!", Toast.LENGTH_SHORT).show();
                     Intent moveToLogin = new Intent(RegisterActivity.this, MainActivity.class);
                     startActivity(moveToLogin);
 

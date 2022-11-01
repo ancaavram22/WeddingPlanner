@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         textViewRegister = findViewById(R.id.textViewRegister);
 
-        dataBase = Room.databaseBuilder(this, UserDataBase.class, "mi-database.db")
+        dataBase = Room.databaseBuilder(this, UserDataBase.class, "users.db")
                 .allowMainThreadQueries()
                 .build();
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Summary"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:id="@+id/summary"/>
+    <item android:title="Tasks"
+        android:icon="@drawable/ic_baseline_playlist_add_check_24"
+        android:id="@+id/tasks"/>
+    <item android:title="Profile"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:id="@+id/profile"/>
+    <item android:title="Guests"
+        android:icon="@drawable/ic_baseline_people_24"
+        android:id="@+id/guests"/>
+    <item android:title="Vendors"
+        android:icon="@drawable/ic_baseline_money_24"
+        android:id="@+id/vendors"/>
+</menu>

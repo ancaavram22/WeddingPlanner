@@ -32,12 +32,12 @@
 
     <LinearLayout
         android:id="@+id/input_group"
-        android:layout_width="350dp"
+        android:layout_width="386dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:layout_marginBottom="27dp"
+        android:layout_marginBottom="0dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -140,10 +140,10 @@
             android:layout_margin="10dp"
             android:background="@drawable/edit_text"
             android:fontFamily="@font/moondancefont"
-            android:hint="Password"
             android:inputType="textPassword"
             android:minHeight="48dp"
-            android:padding="10dp" />
+            android:padding="10dp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
 
         <TextView
@@ -155,6 +155,17 @@
             android:textColor="#000000"
             android:textSize="20dp" />
 
+
+        <Spinner
+            android:id="@+id/roleSelectionSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/edit_text"
+            android:fontFamily="@font/moondancefont"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
             android:id="@+id/buttonRegister"

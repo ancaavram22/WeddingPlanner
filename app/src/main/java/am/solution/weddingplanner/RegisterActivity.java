@@ -12,8 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import am.solution.weddingplanner.data.UserDAO;
 import am.solution.weddingplanner.data.UserDataBase;
@@ -31,19 +29,19 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-       // spinnerRoles = findViewById(R.id.selectRoleSpinner);
+        spinnerRoles = findViewById(R.id.roleSelectionSpinner);
         editEmail = findViewById(R.id.email_input);
         editFirstName = findViewById(R.id.firstName_input);
         editLastName = findViewById(R.id.lastName_input);
         editUsername = findViewById(R.id.username_input);
         editPassword = findViewById(R.id.password_input);
-       // editRole = findViewById(R.id.firstName_input);
+        editRole = findViewById(R.id.firstName_input);
         buttonRegister = findViewById(R.id.buttonRegister);
 
-//        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this,
-//                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.roles));
-//        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//       spinnerRoles.setAdapter(myAdapter);
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.roles));
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+       spinnerRoles.setAdapter(myAdapter);
 
         userDao = Room.databaseBuilder(this, UserDataBase.class, "mi-database.db").allowMainThreadQueries()
                 .build().getUserDao();
@@ -57,7 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String firstName = editFirstName.getText().toString().trim();
                 String lastName = editLastName.getText().toString().trim();
 
-                    User user = new User(userName,password,email,firstName,lastName);
+                    User user = new User();
                     userDao.insert(user);
                     Intent moveToLogin = new Intent(RegisterActivity.this, MainActivity.class);
                     startActivity(moveToLogin);

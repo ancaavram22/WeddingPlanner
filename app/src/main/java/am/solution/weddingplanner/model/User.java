@@ -14,12 +14,18 @@ public class User implements Serializable {
     private int id;
     private String userName;
     private String password;
-    private String email ;
+    private String email;
+    private String firstName;
+    private String lastName;
 
-    public User(String userName, String password, String email, String firstName, String lastName) {
+
+
+    public User() {
         this.userName = userName;
         this.password = password;
         this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     @NonNull
@@ -55,6 +61,14 @@ public class User implements Serializable {
         this.email = email;
     }
 
+    public String getFirstName() {return firstName;}
+
+    public void setFirstName(String firstName) {this.firstName = firstName;}
+
+    public String getLastName() {return lastName;}
+
+    public void setLastName(String lastName) {this.lastName = lastName;}
+
     @Override
     public String toString() {
         return "User{" +
@@ -62,6 +76,8 @@ public class User implements Serializable {
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 '}';
     }
 }

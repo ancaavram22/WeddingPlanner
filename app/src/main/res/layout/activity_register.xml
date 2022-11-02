@@ -1,107 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:gravity="center"
-        android:layout_alignParentTop="true"
-        android:layout_above="@id/input_group">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:text="SIGN UP"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"/>
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="140dp"
+        android:layout_height="96dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="261dp"
+        android:layout_marginBottom="645dp"
+        app:srcCompat="@drawable/login" />
 
+    <TextView
+        android:id="@+id/appTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="642dp"
+        android:fontFamily="@font/moondancefont"
+        android:text="Wedding Planner"
+        android:textColor="@color/black"
+        android:textSize="40sp" />
 
     <LinearLayout
         android:id="@+id/input_group"
-        android:layout_width="match_parent"
+        android:layout_width="386dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:layout_marginBottom="50dp"
-        android:layout_alignParentBottom="true"
-        android:gravity="center">
+        android:layout_marginBottom="0dp"
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/editTextUsername"
+        <TextView
+            android:id="@+id/email_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/edit_text_top"
-            android:hint="Username"
-            android:inputType="textPersonName"
-            android:padding="15dp" />
+            android:fontFamily="@font/moondancefont"
+            android:text="Email"
+            android:textColor="#000000"
+            android:textSize="20dp" />
 
         <EditText
-            android:id="@+id/editTextEmail"
+            android:id="@+id/email_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/edit_text_middle"
-            android:hint="Email"
+            android:layout_margin="10dp"
+            android:background="@drawable/edit_text"
+            android:fontFamily="@font/moondancefont"
             android:inputType="textEmailAddress"
-            android:padding="15dp" />
+            android:minHeight="48dp"
+            android:padding="10dp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-        <EditText
-            android:id="@+id/editTextPassword"
+        <TextView
+            android:id="@+id/firstName_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/edit_text_middle"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:padding="15dp"/>
+            android:fontFamily="@font/moondancefont"
+            android:text="First Name"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
         <EditText
-            android:id="@+id/editTextCnfPassword"
+            android:id="@+id/firstName_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/edit_text_middle"
-            android:hint="Password"
+            android:layout_margin="10dp"
+            android:background="@drawable/edit_text"
+            android:fontFamily="@font/moondancefont"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/lastName_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/moondancefont"
+            android:text="Last Name"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/lastName_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/edit_text"
+            android:fontFamily="@font/moondancefont"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/username_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/moondancefont"
+            android:text="Username"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/username_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/edit_text"
+            android:inputType="textVisiblePassword|textNoSuggestions"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/password_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/moondancefont"
+            android:text="Password"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/password_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/edit_text"
+            android:fontFamily="@font/moondancefont"
             android:inputType="textPassword"
-            android:padding="15dp"/>
+            android:minHeight="48dp"
+            android:padding="10dp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
 
+        <TextView
+            android:id="@+id/selectRole_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/moondancefont"
+            android:text="Select Role"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+
+        <Spinner
+            android:id="@+id/roleSelectionSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/edit_text"
+            android:fontFamily="@font/moondancefont"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
             android:id="@+id/buttonRegister"
-            android:layout_width="218dp"
+            android:layout_width="106dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:foreground="?android:attr/selectableItemBackground"
             android:backgroundTint="@color/button"
-            android:text="SIGN UP"
+            android:fontFamily="@font/moondancefont"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="Sign Up"
             android:textAllCaps="false"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             android:textSize="17sp"
-            app:strokeColor="@color/button"/>
+            app:strokeColor="@color/button" />
 
-        <TextView
-            android:id="@+id/textViewLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:padding="10dp"
-            android:text="Already Have an Account?  Sign in"
-            android:textAllCaps="true"
-            android:textSize="13dp"
-            android:textStyle="bold"
-            android:textColor="@color/button"
-            android:fontFamily="sans-serif"/>
 
     </LinearLayout>
+
 </RelativeLayout>

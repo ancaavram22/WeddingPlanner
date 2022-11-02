@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">WeddingPlanner</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="roles">
+        <item>Bride</item>
+        <item>Groom</item>
+        <item>Other</item>
+    </string-array>
 </resources>

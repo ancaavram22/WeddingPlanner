@@ -7,65 +7,101 @@
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/input_group"
+        android:layout_width="wrap_content"
+        android:layout_height="230dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="29dp"
         android:layout_marginLeft="25dp"
+        android:layout_marginTop="105dp"
+        android:layout_marginEnd="22dp"
         android:layout_marginRight="25dp"
+        android:layout_marginBottom="396dp"
         android:gravity="center"
         android:orientation="vertical">
 
 
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/logo_png"
+            android:layout_width="219dp"
+            android:layout_height="154dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/login" />
 
+        <TextView
+            android:id="@+id/logo_txt"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/moondancefont"
+            android:text="Wedding Planner"
+            android:textColor="#000000"
+            android:textSize="55dp" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/input_group"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="361dp"
+        android:layout_height="355dp"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="21dp"
         android:gravity="center"
         android:orientation="vertical">
 
+
+        <TextView
+            android:id="@+id/mainEmail_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/moondancefont"
+            android:text="Email"
+            android:textColor="#000000"
+            android:textSize="30dp" />
 
         <EditText
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="@drawable/edit_text_top"
-            android:hint="Email
-"
+            android:background="@drawable/edit_text"
             android:inputType="textPersonName"
             android:padding="15dp" />
+
+        <TextView
+            android:id="@+id/mainPassword_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/moondancefont"
+            android:text="Password"
+            android:textColor="#000000"
+            android:textSize="30dp" />
 
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="@drawable/edit_text_bottom"
-            android:hint="Password"
+            android:background="@drawable/edit_text"
             android:inputType="textPassword"
             android:padding="15dp" />
 
 
         <Button
             android:id="@+id/buttonLogin"
-            android:layout_width="218dp"
+            android:layout_width="127dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-
             android:backgroundTint="@color/button"
+            android:fontFamily="@font/moondancefont"
             android:foreground="?android:attr/selectableItemBackground"
-            android:text="SIGN IN"
+            android:text="Sign In"
             android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            android:textSize="17sp"
+            android:textColor="@color/black"
+            android:textSize="25dp"
             app:strokeColor="@color/button" />
 
         <TextView
@@ -73,12 +109,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
-            android:fontFamily="sans-serif"
+            android:fontFamily="@font/moondancefont"
             android:padding="10dp"
             android:text="Don't Have an Account?  Sign Up"
             android:textAllCaps="true"
-            android:textColor="@color/button"
-            android:textSize="13dp"
+            android:textColor="@color/black"
+            android:textSize="15dp"
             android:textStyle="bold" />
 
 

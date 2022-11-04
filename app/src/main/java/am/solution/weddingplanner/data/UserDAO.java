@@ -8,8 +8,8 @@ import androidx.room.Update;
 import am.solution.weddingplanner.model.User;
 @Dao
 public interface UserDAO {
-    @Query("SELECT * FROM User where email= :mail and password= :password")
-    User getUser(String mail, String password);
+    @Query("SELECT * FROM User where email= :email and password= :password")
+    User getUser( String email, String password);
 
     @Insert
     void insert(User user);

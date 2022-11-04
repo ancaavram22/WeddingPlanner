@@ -12,7 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-
+import android.widget.Toast;
+import android.widget.TextView;
 import am.solution.weddingplanner.data.UserDAO;
 import am.solution.weddingplanner.data.UserDataBase;
 import am.solution.weddingplanner.model.User;
@@ -22,6 +23,7 @@ public class RegisterActivity extends AppCompatActivity {
     Button buttonRegister;
     Spinner spinnerRoles;
 
+    TextView textViewLogin;
     private UserDAO userDao;
 
     @Override
@@ -35,7 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
         editLastName = findViewById(R.id.lastName_input);
         editUsername = findViewById(R.id.username_input);
         editPassword = findViewById(R.id.password_input);
-        editRole = findViewById(R.id.firstName_input);
+        //editRole = findViewById(R.id.firstName_input);
         buttonRegister = findViewById(R.id.buttonRegister);
 
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this,
@@ -43,7 +45,7 @@ public class RegisterActivity extends AppCompatActivity {
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
        spinnerRoles.setAdapter(myAdapter);
 
-        userDao = Room.databaseBuilder(this, UserDataBase.class, "users.db").allowMainThreadQueries()
+        userDao = Room.databaseBuilder(this, UserDataBase.class, "users_new2.db").allowMainThreadQueries()
                 .build().getUserDao();
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String firstName = editFirstName.getText().toString().trim();
                 String lastName = editLastName.getText().toString().trim();
 
-                    User user = new User();
+                    User user = new User(userName,  password,email, firstName, lastName);
                     userDao.insert(user);
                     Toast.makeText(RegisterActivity.this, "Registered! You can log in!", Toast.LENGTH_SHORT).show();
                     Intent moveToLogin = new Intent(RegisterActivity.this, MainActivity.class);

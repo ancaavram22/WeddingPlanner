@@ -32,13 +32,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-       editTextEmail = findViewById(R.id.editTextEmail);
+        editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
 
         textViewRegister = findViewById(R.id.textViewRegister);
 
-        dataBase = Room.databaseBuilder(this, UserDataBase.class, "users.db")
+        dataBase = Room.databaseBuilder(this, UserDataBase.class, "users_new2.db")
                 .allowMainThreadQueries()
                 .build();
 

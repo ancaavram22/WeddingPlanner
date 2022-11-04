@@ -20,7 +20,7 @@ public class User implements Serializable {
 
 
 
-    public User() {
+    public User(String userName, String password, String email, String firstName, String lastName) {
         this.userName = userName;
         this.password = password;
         this.email = email;

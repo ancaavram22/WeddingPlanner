@@ -6,6 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".GuestsFragment">
 
+    <TextView
+        android:id="@+id/changeRole"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="149dp"
+        android:layout_marginBottom="289dp"
+        android:fontFamily="@font/moondancefont"
+        android:padding="10dp"
+        android:text="Change Role in Wedding"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="80dp"
@@ -73,6 +90,23 @@
         android:gravity="center"
         android:text="First Name"
         android:textSize="40dp" />
+
+    <TextView
+        android:id="@+id/changePass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="202dp"
+        android:layout_marginBottom="360dp"
+        android:fontFamily="@font/moondancefont"
+        android:padding="10dp"
+        android:text="Change Password"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:textStyle="bold" />
 
     <Switch
         android:id="@+id/notification_switch"

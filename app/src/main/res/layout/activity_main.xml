@@ -1,10 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg">
 
+
+    <LinearLayout
+        android:layout_width="358dp"
+        android:layout_height="91dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="29dp">
+
+        <Button
+            android:id="@+id/resetPass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Reset" />
+
+        <TextView
+            android:id="@+id/textViewRegister"
+            android:layout_width="131dp"
+            android:layout_height="76dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="39dp"
+            android:layout_marginBottom="47dp"
+            android:fontFamily="@font/moondancefont"
+            android:padding="10dp"
+            android:text="Sign Up"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -13,12 +46,12 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="29dp"
+        android:layout_marginStart="33dp"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="105dp"
-        android:layout_marginEnd="22dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="18dp"
         android:layout_marginRight="25dp"
-        android:layout_marginBottom="396dp"
+        android:layout_marginBottom="468dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -43,18 +76,18 @@
 
     <LinearLayout
         android:id="@+id/input_group"
-        android:layout_width="361dp"
-        android:layout_height="355dp"
+        android:layout_width="366dp"
+        android:layout_height="318dp"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:layout_marginBottom="21dp"
+        android:layout_marginBottom="131dp"
         android:gravity="center"
         android:orientation="vertical">
 
 
         <TextView
-            android:id="@+id/mainEmail_txt"
+            android:id="@+id/pass_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/moondancefont"
@@ -69,10 +102,11 @@
             android:layout_margin="5dp"
             android:background="@drawable/edit_text"
             android:inputType="textPersonName"
-            android:padding="15dp" />
+            android:padding="15dp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
-            android:id="@+id/mainPassword_txt"
+            android:id="@+id/mainPass_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/moondancefont"
@@ -87,7 +121,8 @@
             android:layout_margin="5dp"
             android:background="@drawable/edit_text"
             android:inputType="textPassword"
-            android:padding="15dp" />
+            android:padding="15dp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
 
         <Button
@@ -103,19 +138,6 @@
             android:textColor="@color/black"
             android:textSize="25dp"
             app:strokeColor="@color/button" />
-
-        <TextView
-            android:id="@+id/textViewRegister"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:fontFamily="@font/moondancefont"
-            android:padding="10dp"
-            android:text="Don't Have an Account?  Sign Up"
-            android:textAllCaps="true"
-            android:textColor="@color/black"
-            android:textSize="15dp"
-            android:textStyle="bold" />
 
 
     </LinearLayout>

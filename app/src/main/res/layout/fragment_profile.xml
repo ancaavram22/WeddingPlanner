@@ -8,19 +8,19 @@
 
     <TextView
         android:id="@+id/changeRole"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="377dp"
+        android:layout_height="56dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="3dp"
-        android:layout_marginEnd="149dp"
-        android:layout_marginBottom="289dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="268dp"
         android:fontFamily="@font/moondancefont"
         android:padding="10dp"
         android:text="Change Role in Wedding"
         android:textAllCaps="true"
         android:textColor="@color/black"
-        android:textSize="15dp"
+        android:textSize="20dp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -93,19 +93,19 @@
 
     <TextView
         android:id="@+id/changePass"
-        android:layout_width="wrap_content"
+        android:layout_width="375dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="3dp"
-        android:layout_marginEnd="202dp"
-        android:layout_marginBottom="360dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="343dp"
         android:fontFamily="@font/moondancefont"
         android:padding="10dp"
-        android:text="Change Password"
+        android:text=" Change Password "
         android:textAllCaps="true"
         android:textColor="@color/black"
-        android:textSize="15dp"
+        android:textSize="20dp"
         android:textStyle="bold" />
 
     <Switch
@@ -117,10 +117,26 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="35dp"
         android:layout_marginEnd="35dp"
-        android:layout_marginBottom="126dp"
+        android:layout_marginBottom="91dp"
         android:fontFamily="@font/moondancefont"
         android:text="Notifications"
         android:textSize="35dp" />
+
+    <Spinner
+        android:id="@+id/roles"
+        android:layout_width="254dp"
+        android:layout_height="58dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="133dp"
+        android:layout_marginBottom="208dp"
+        android:background="#D9D9D9"
+        android:fontFamily="@font/moondancefont"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 
 </RelativeLayout>

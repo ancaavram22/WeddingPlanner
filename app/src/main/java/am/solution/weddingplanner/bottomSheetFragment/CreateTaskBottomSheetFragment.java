@@ -8,6 +8,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -29,13 +30,18 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.room.Room;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import am.solution.weddingplanner.RegisterActivity;
 import am.solution.weddingplanner.TasksFragment;
+import am.solution.weddingplanner.data.TaskDAO;
+import am.solution.weddingplanner.data.TaskDataBase;
 import am.solution.weddingplanner.model.User;
+import am.solution.weddingplanner.model.Task;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -47,6 +53,12 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
     EditText addTaskTime;
     EditText addTaskEvent;
     Button createTaskbutton;
+
+    TasksFragment activity;
+
+    private TaskDAO taskDao;
+    private User user;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -57,11 +69,16 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
         addTaskDate = view.findViewById(R.id.taskDate);
         addTaskTime = view.findViewById(R.id.taskTime);
         addTaskEvent = view.findViewById(R.id.taskEvent);
-
         createTaskbutton = view.findViewById(R.id.createTask);
+
+        Context context = getContext();
+        taskDao = Room.databaseBuilder(context, TaskDataBase.class, "task_db.db").allowMainThreadQueries().build().getTaskDao();
+        user = (User) getActivity().getIntent().getSerializableExtra("User");
         createTaskbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                String taskUser = user.getUserName();
                 String taskTitle = addTaskTitle.getText().toString().trim();
                 String taskDescription = addTaskDescription.getText().toString().trim();
                 String taskDate = addTaskDate.getText().toString().trim();
@@ -71,6 +88,14 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
 //                System.out.println("verify if data is extracted" + taskDescription);
 //                System.out.println("verify if data is extracted" + taskDate);
 //                System.out.println("verify if data is extracted" + taskTime);
+
+                Task task = new Task(taskUser, taskTitle, taskDescription, taskDate, taskTime, taskEvent);
+                taskDao.insert(task);
+                Toast.makeText (context, "Task created!", Toast.LENGTH_SHORT).show ();
+
+                FragmentTransaction fr =getParentFragmentManager().beginTransaction();
+                fr.replace(R.id.container, new TasksFragment());
+                fr.commit();
             }
         });
         return view;

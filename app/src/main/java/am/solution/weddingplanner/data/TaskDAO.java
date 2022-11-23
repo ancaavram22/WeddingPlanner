@@ -10,7 +10,7 @@ import am.solution.weddingplanner.model.Task;
 @Dao
 public interface TaskDAO {
     @Query("SELECT * FROM Task where  taskUser= :username ")
-    Task getUser( String username);
+    Task getTask( String username);
 
     @Insert
     void insert(Task task);

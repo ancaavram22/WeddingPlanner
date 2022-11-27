@@ -5,4 +5,5 @@
         <item>Groom</item>
         <item>Other</item>
     </string-array>
+    <string name="congrats_you_have_completed_the_task_successfully">Congrats!... You have completed the task successfully..</string>
 </resources>

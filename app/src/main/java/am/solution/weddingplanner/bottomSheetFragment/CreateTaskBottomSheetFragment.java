@@ -74,6 +74,7 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
         Context context = getContext();
         taskDao = Room.databaseBuilder(context, TaskDataBase.class, "task_db.db").allowMainThreadQueries().build().getTaskDao();
         user = (User) getActivity().getIntent().getSerializableExtra("User");
+
         createTaskbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,7 +85,7 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
                 String taskDate = addTaskDate.getText().toString().trim();
                 String taskTime = addTaskTime.getText().toString().trim();
                 String taskEvent = addTaskEvent.getText().toString().trim();
-//                System.out.println("verify if data is extracted" + taskTitle);
+                System.out.println("verify if data is extracted" + taskUser);
 //                System.out.println("verify if data is extracted" + taskDescription);
 //                System.out.println("verify if data is extracted" + taskDate);
 //                System.out.println("verify if data is extracted" + taskTime);
@@ -99,6 +100,9 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
             }
         });
         return view;
+    }
+    public interface setRefreshListener {
+        void refresh();
     }
 
 }

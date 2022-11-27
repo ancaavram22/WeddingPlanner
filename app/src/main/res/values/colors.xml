@@ -9,4 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="textbox_login">#DBBD9A</color>
     <color name="button">#DB9F48</color>
+    <color name="colorAccent">#DB9F48</color>
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#ffffff</color>
 </resources>

@@ -60,6 +60,7 @@ public class TasksFragment extends Fragment {
         });
 
         getSavedTasks();
+
         RecyclerView recyclerView = view.findViewById(R.id.taskRecycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         TaskAdapter taskAdapter = new TaskAdapter(getContext(),getSavedTasks());

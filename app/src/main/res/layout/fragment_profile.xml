@@ -1,16 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
+    tools:context=".GuestsFragment">
 
     <TextView
+        android:id="@+id/changeRole"
+        android:layout_width="377dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="268dp"
+        android:fontFamily="@font/moondancefont"
+        android:padding="10dp"
+        android:text="Change Role in Wedding"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
         android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="600dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="138dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/login" />
+
+        <TextView
+            android:id="@+id/account_txt"
+            android:layout_width="262dp"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/moondancefont"
+            android:gravity="center"
+            android:text="Account"
+            android:textSize="48dp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="105dp"
+        android:layout_height="84dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="146dp"
+        android:layout_marginEnd="159dp"
+        android:layout_marginBottom="500dp"
+        android:src="@drawable/ic_baseline_person_24" />
+
+    <TextView
+        android:id="@+id/lastNameAcc_txt"
+        android:layout_width="160dp"
+        android:layout_height="46dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="440dp"
+        android:fontFamily="@font/moondancefont"
+        android:gravity="center"
+        android:text="Last Name"
+        android:textSize="40dp" />
+
+    <TextView
+        android:id="@+id/firstNameAcc_txt"
+        android:layout_width="163dp"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="438dp"
+        android:fontFamily="@font/moondancefont"
+        android:gravity="center"
+        android:text="First Name"
+        android:textSize="40dp" />
+
+    <TextView
+        android:id="@+id/changePass"
+        android:layout_width="375dp"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Profile Fragment"
-        android:textSize="25dp" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="343dp"
+        android:fontFamily="@font/moondancefont"
+        android:padding="10dp"
+        android:text=" Change Password "
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <Switch
+        android:id="@+id/notification_switch"
+        android:layout_width="341dp"
+        android:layout_height="65dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="91dp"
+        android:fontFamily="@font/moondancefont"
+        android:text="Notifications"
+        android:textSize="35dp" />
+
+    <Spinner
+        android:id="@+id/roles"
+        android:layout_width="254dp"
+        android:layout_height="58dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="133dp"
+        android:layout_marginBottom="208dp"
+        android:background="#D9D9D9"
+        android:fontFamily="@font/moondancefont"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 
-</FrameLayout>
+</RelativeLayout>

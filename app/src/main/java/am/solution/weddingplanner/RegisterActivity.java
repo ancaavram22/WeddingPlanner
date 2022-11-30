@@ -1,19 +1,17 @@
 package am.solution.weddingplanner;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-
-import androidx.room.Room;
-
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
+
 import am.solution.weddingplanner.data.UserDAO;
 import am.solution.weddingplanner.data.UserDataBase;
 import am.solution.weddingplanner.model.User;
@@ -59,7 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                     User user = new User(userName,  password,email, firstName, lastName);
                     userDao.insert(user);
-                    Toast.makeText(RegisterActivity.this, "Registered! You can log in!", Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(RegisterActivity.this, "Registered! You can log in!", Toast.LENGTH_SHORT).show();
                     Intent moveToLogin = new Intent(RegisterActivity.this, MainActivity.class);
                     startActivity(moveToLogin);
 

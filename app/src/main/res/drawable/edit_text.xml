@@ -6,7 +6,7 @@
                 android:topRightRadius="200dp"
                 android:bottomLeftRadius="200dp"
                 android:bottomRightRadius="200dp"/>
-            <solid android:color="#E0B679" />
+            <solid android:color="#DBBD9A" />
             <stroke android:width="0.2dp" android:color="#7E6D59" />
         </shape>
     </item>

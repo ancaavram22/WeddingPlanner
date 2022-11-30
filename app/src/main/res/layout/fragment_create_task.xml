@@ -156,8 +156,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:background="@drawable/btn_background"
+        android:background="@drawable/button"
         android:text="Add task"
+        android:backgroundTint="@color/button"
         android:textColor="@color/black" />
 
 </LinearLayout>

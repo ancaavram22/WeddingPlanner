@@ -1,11 +1,5 @@
 package am.solution.weddingplanner;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +8,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
+
 import am.solution.weddingplanner.data.UserDAO;
 import am.solution.weddingplanner.data.UserDataBase;
 import am.solution.weddingplanner.model.User;
@@ -21,7 +18,7 @@ import am.solution.weddingplanner.model.User;
 
 public class MainActivity extends AppCompatActivity {
     EditText editTextEmail, editTextPassword;
-    Button buttonLogin;
+    Button buttonLogin, resetPassByMail;
     TextView textViewRegister;
     UserDAO db;
     UserDataBase dataBase;
@@ -36,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
 
+       resetPassByMail = findViewById(R.id.resetPass);
         textViewRegister = findViewById(R.id.textViewRegister);
 
         dataBase = Room.databaseBuilder(this, UserDataBase.class, "users_new2.db")
@@ -45,12 +43,9 @@ public class MainActivity extends AppCompatActivity {
         db = dataBase.getUserDao();
 
 
-        textViewRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, RegisterActivity.class));
-            }
-        });
+       textViewRegister.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, RegisterActivity.class)));
+
+        resetPassByMail.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ResetPasswordByEmailActivity.class)));
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override

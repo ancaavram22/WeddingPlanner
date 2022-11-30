@@ -24,7 +24,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Hello"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -32,7 +31,7 @@
                 fontPath="fonts/nunito_extra_bold.ttf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="All tasks"
+                android:text="Your tasks"
                 android:textColor="@color/black"
                 android:textSize="28sp"
                 android:textStyle="bold"

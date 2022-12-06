@@ -27,7 +27,7 @@
             android:layout_height="fill_parent"
             android:layout_gravity="start" />
 
-        ></androidx.drawerlayout.widget.DrawerLayout>
+        </androidx.drawerlayout.widget.DrawerLayout>
 
     <FrameLayout
         android:layout_width="match_parent"

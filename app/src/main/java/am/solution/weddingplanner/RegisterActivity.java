@@ -58,6 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
                     User user = new User(userName,  password,email, firstName, lastName);
                     userDao.insert(user);
                   //  Toast.makeText(RegisterActivity.this, "Registered! You can log in!", Toast.LENGTH_SHORT).show();
+
                     Intent moveToLogin = new Intent(RegisterActivity.this, MainActivity.class);
                     startActivity(moveToLogin);
 

@@ -1,42 +1,31 @@
 package am.solution.weddingplanner.bottomSheetFragment;
 
-import static android.content.Context.ALARM_SERVICE;
-
 import android.annotation.SuppressLint;
-import android.app.AlarmManager;
 import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
-import android.content.Intent;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import am.solution.weddingplanner.MainActivity;
-import am.solution.weddingplanner.R;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-import am.solution.weddingplanner.RegisterActivity;
+import java.util.Calendar;
+
+import am.solution.weddingplanner.R;
 import am.solution.weddingplanner.TasksFragment;
 import am.solution.weddingplanner.data.TaskDAO;
 import am.solution.weddingplanner.data.TaskDataBase;
-import am.solution.weddingplanner.model.User;
 import am.solution.weddingplanner.model.Task;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
+import am.solution.weddingplanner.model.User;
 
 
 

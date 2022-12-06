@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg">
-
+    tools:context=".ResetPassByMailActivity">
 
     <ImageView
         android:id="@+id/key"
@@ -15,26 +14,24 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="104dp"
         android:layout_marginBottom="515dp"
-        android:layout_weight="1"
-        app:srcCompat="@drawable/key_svgrepo_com" />
+        app:srcCompat="@drawable/key_svgrepo_com"/>
 
     <Button
-        android:id="@+id/buttonChangePass"
+        android:id="@+id/buttonResetPass"
         android:layout_width="191dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="96dp"
-        android:layout_marginBottom="71dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginBottom="82dp"
         android:backgroundTint="@color/button"
         android:fontFamily="@font/moondancefont"
         android:foreground="?android:attr/selectableItemBackground"
-        android:text="Reset Password"
+        android:text="Send Email"
         android:textAllCaps="false"
         android:textColor="@color/black"
-        android:textSize="25dp"
-        app:strokeColor="@color/button" />
+        android:textSize="25dp" />
 
     <LinearLayout
         android:id="@+id/input_group"
@@ -43,41 +40,22 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:layout_marginBottom="240dp"
+        android:layout_marginBottom="231dp"
         android:gravity="center"
         android:orientation="vertical">
 
 
         <TextView
-            android:id="@+id/pass_txt"
+            android:id="@+id/sendEmail_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/moondancefont"
-            android:text="New Password"
+            android:text="Your Email"
             android:textColor="#000000"
             android:textSize="30dp" />
 
         <EditText
-            android:id="@+id/newPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/edit_text"
-            android:inputType="textPersonName"
-            android:padding="15dp"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <TextView
-            android:id="@+id/mainPass_txt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/moondancefont"
-            android:text="Confirm New Password"
-            android:textColor="#000000"
-            android:textSize="30dp" />
-
-        <EditText
-            android:id="@+id/confirmNewPassword"
+            android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -88,5 +66,6 @@
 
 
     </LinearLayout>
+
 
 </RelativeLayout>

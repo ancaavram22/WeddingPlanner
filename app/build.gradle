@@ -26,6 +26,9 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     namespace 'am.solution.weddingplanner'
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -56,6 +59,11 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.2.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
 
+    //Drawer layout Side menu
+    def lifecycle_version = "2.2.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "com.google.android.material:material:$version"
 
     //implementation 'com.applandeo:material-calendar-view:1.7.0'
 }

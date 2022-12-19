@@ -6,29 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:openDrawer="start"
-        android:id="@+id/drawer_layout">
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="?attr/actionBarSize">
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolBar"
-                android:background="#9C27B0"
-                android:layout_width="fill_parent"
-                android:layout_height="?attr/actionBarSize"/>
-        </RelativeLayout>
-
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/nav_view"
-            android:layout_width="320dp"
-            android:layout_height="fill_parent"
-            android:layout_gravity="start" />
-
-        </androidx.drawerlayout.widget.DrawerLayout>
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

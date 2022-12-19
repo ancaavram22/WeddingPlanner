@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
 public class ProfileFragment extends Fragment {
-    TextView changePassword;
+    TextView changePassword, wedDetails;
+    Button logOutButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -20,6 +22,9 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
        changePassword = view.findViewById(R.id.changePass);
+       wedDetails = view.findViewById(R.id.wedDetails);
+       logOutButton = view.findViewById(R.id.logOutButton);
+
         changePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -27,6 +32,25 @@ public class ProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        wedDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), WeddingDetailsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+        logOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
 

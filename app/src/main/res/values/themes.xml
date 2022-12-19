@@ -16,7 +16,7 @@
 
     <style name="Theme.WeddingPlanner.NoActionBar">
         <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+        <item name="windowNoTitle">false</item>
     </style>
 
     <style name="Theme.WeddingPlanner.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

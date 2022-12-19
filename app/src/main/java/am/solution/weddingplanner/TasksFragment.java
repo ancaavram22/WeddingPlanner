@@ -1,35 +1,33 @@
 package am.solution.weddingplanner;
+
 import android.content.Context;
 import android.os.Bundle;
-import am.solution.weddingplanner.model.Task;
-import am.solution.weddingplanner.data.TaskDAO;
-import am.solution.weddingplanner.data.TaskDataBase;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
-import am.solution.weddingplanner.bottomSheetFragment.CreateTaskBottomSheetFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import am.solution.weddingplanner.model.User;
 import am.solution.weddingplanner.adapters.TaskAdapter;
+import am.solution.weddingplanner.bottomSheetFragment.CreateTaskBottomSheetFragment;
+import am.solution.weddingplanner.data.TaskDAO;
+import am.solution.weddingplanner.data.TaskDataBase;
+import am.solution.weddingplanner.model.Task;
+import am.solution.weddingplanner.model.User;
 import butterknife.BindView;
 
 public class TasksFragment extends Fragment {
 
 
-    @BindView(R.id.calendar)
-    ImageView calendar;
     @BindView(R.id.taskRecycler)
     RecyclerView taskRecycler;
     @BindView(R.id.noDataImage)
@@ -49,7 +47,11 @@ public class TasksFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_tasks, container, false);
 
-        Button addTask = view.findViewById(R.id.addTaskButton);
+        ImageButton addTask = view.findViewById(R.id.addTaskButton);
+        ImageButton deleteTask = view.findViewById(R.id.deleteTaskButton);
+
+
+
         addTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

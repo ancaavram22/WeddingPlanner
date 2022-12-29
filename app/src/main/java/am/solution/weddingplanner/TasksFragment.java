@@ -1,35 +1,36 @@
 package am.solution.weddingplanner;
-import android.content.Context;
-import android.os.Bundle;
-import am.solution.weddingplanner.model.Task;
-import am.solution.weddingplanner.data.TaskDAO;
-import am.solution.weddingplanner.data.TaskDataBase;
-import androidx.fragment.app.Fragment;
 
+import android.content.Context;
+import android.os.Build;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
-import am.solution.weddingplanner.bottomSheetFragment.CreateTaskBottomSheetFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import am.solution.weddingplanner.model.User;
 import am.solution.weddingplanner.adapters.TaskAdapter;
+import am.solution.weddingplanner.bottomSheetFragment.CreateTaskBottomSheetFragment;
+import am.solution.weddingplanner.data.TaskDAO;
+import am.solution.weddingplanner.data.TaskDataBase;
+import am.solution.weddingplanner.model.Task;
+import am.solution.weddingplanner.model.User;
 import butterknife.BindView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class TasksFragment extends Fragment {
 
-
-    @BindView(R.id.calendar)
-    ImageView calendar;
+    SwipeRefreshLayout swipeRefreshLayout;
     @BindView(R.id.taskRecycler)
     RecyclerView taskRecycler;
     @BindView(R.id.noDataImage)
@@ -48,8 +49,13 @@ public class TasksFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_tasks, container, false);
+        swipeRefreshLayout = view.findViewById(R.id.swipe_refresh);
 
-        Button addTask = view.findViewById(R.id.addTaskButton);
+        ImageButton addTask = view.findViewById(R.id.addGuestButton);
+        ImageButton deleteTask = view.findViewById(R.id.deleteGuestButton);
+
+
+
         addTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,6 +71,20 @@ public class TasksFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         TaskAdapter taskAdapter = new TaskAdapter(getContext(),getSavedTasks());
         recyclerView.setAdapter(taskAdapter);
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                getSavedTasks();
+                RecyclerView recyclerView = view.findViewById(R.id.taskRecycler);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                TaskAdapter taskAdapter = new TaskAdapter(getContext(),getSavedTasks());
+                recyclerView.setAdapter(taskAdapter);
+
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
         return view;
     }

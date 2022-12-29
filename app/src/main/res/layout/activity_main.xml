@@ -7,37 +7,39 @@
     android:background="@drawable/bg">
 
 
-    <LinearLayout
-        android:layout_width="358dp"
-        android:layout_height="91dp"
+    <TextView
+        android:id="@+id/textViewReset"
+        android:layout_width="182dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="29dp">
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="199dp"
+        android:layout_marginBottom="34dp"
+        android:fontFamily="@font/moondancefont"
+        android:padding="10dp"
+        android:text="Reset password"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/resetPass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Reset" />
-
-        <TextView
-            android:id="@+id/textViewRegister"
-            android:layout_width="131dp"
-            android:layout_height="76dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginEnd="39dp"
-            android:layout_marginBottom="47dp"
-            android:fontFamily="@font/moondancefont"
-            android:padding="10dp"
-            android:text="Sign Up"
-            android:textAllCaps="true"
-            android:textColor="@color/black"
-            android:textSize="15dp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textViewRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="35dp"
+        android:fontFamily="@font/moondancefont"
+        android:padding="10dp"
+        android:text="Sign Up"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="wrap_content"

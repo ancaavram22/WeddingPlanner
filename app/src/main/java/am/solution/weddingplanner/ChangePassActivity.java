@@ -7,7 +7,7 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ChangePasswordActivity extends AppCompatActivity {
+public class ChangePassActivity extends AppCompatActivity {
 
     Button changePassword;
     EditText newPassword, confirmNewPassword;
@@ -16,7 +16,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_password);
+        setContentView(R.layout.activity_change_pass);
 
         changePassword = findViewById(R.id.buttonChangePass);
         newPassword = findViewById(R.id.newPassword);

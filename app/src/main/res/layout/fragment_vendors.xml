@@ -34,7 +34,7 @@
                 android:src="@drawable/login" />
 
             <TextView
-                android:id="@+id/tasks_txt"
+                android:id="@+id/guests_txt"
                 android:layout_width="223dp"
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"
@@ -68,16 +68,15 @@
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:id="@+id/deleteTaskButton"
+                    android:id="@+id/deleteGuestButton"
                     android:layout_width="50dp"
                     android:layout_height="40dp"
                     android:layout_gravity="right"
                     android:background="@null"
-                    android:src="@drawable/bin"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                 <ImageButton
-                    android:id="@+id/addTaskButton"
+                    android:id="@+id/addGuestButton"
                     android:layout_width="50dp"
                     android:layout_height="40dp"
                     android:layout_gravity="right"

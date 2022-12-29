@@ -1,12 +1,14 @@
 package am.solution.weddingplanner;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -24,10 +26,11 @@ import am.solution.weddingplanner.data.TaskDataBase;
 import am.solution.weddingplanner.model.Task;
 import am.solution.weddingplanner.model.User;
 import butterknife.BindView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class TasksFragment extends Fragment {
 
-
+    SwipeRefreshLayout swipeRefreshLayout;
     @BindView(R.id.taskRecycler)
     RecyclerView taskRecycler;
     @BindView(R.id.noDataImage)
@@ -46,9 +49,10 @@ public class TasksFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_tasks, container, false);
+        swipeRefreshLayout = view.findViewById(R.id.swipe_refresh);
 
-        ImageButton addTask = view.findViewById(R.id.addTaskButton);
-        ImageButton deleteTask = view.findViewById(R.id.deleteTaskButton);
+        ImageButton addTask = view.findViewById(R.id.addGuestButton);
+        ImageButton deleteTask = view.findViewById(R.id.deleteGuestButton);
 
 
 
@@ -67,6 +71,20 @@ public class TasksFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         TaskAdapter taskAdapter = new TaskAdapter(getContext(),getSavedTasks());
         recyclerView.setAdapter(taskAdapter);
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                getSavedTasks();
+                RecyclerView recyclerView = view.findViewById(R.id.taskRecycler);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                TaskAdapter taskAdapter = new TaskAdapter(getContext(),getSavedTasks());
+                recyclerView.setAdapter(taskAdapter);
+
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
         return view;
     }

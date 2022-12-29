@@ -8,23 +8,17 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.text.DateFormat;
 import java.util.Locale;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import am.solution.weddingplanner.R;
 import am.solution.weddingplanner.TasksFragment;
-import am.solution.weddingplanner.bottomSheetFragment.CreateTaskBottomSheetFragment;
 import am.solution.weddingplanner.data.TaskDAO;
 import am.solution.weddingplanner.data.TaskDataBase;
 import am.solution.weddingplanner.model.Task;
@@ -85,6 +79,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
 
                 PopupMenu menu = new PopupMenu(context,v);
                 menu.getMenu().add("DELETE");
+                menu.getMenu().add("EDIT");
                 menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {

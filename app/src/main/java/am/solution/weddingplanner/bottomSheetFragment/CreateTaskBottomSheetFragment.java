@@ -55,12 +55,12 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_create_task, container, false);
-        addTaskTitle = view.findViewById(R.id.addTaskTitle);
-        addTaskDescription = view.findViewById(R.id.addTaskDescription);
+        addTaskTitle = view.findViewById(R.id.addGuestName);
+        addTaskDescription = view.findViewById(R.id.addNoOfPersons);
         addTaskDate = view.findViewById(R.id.taskDate);
         addTaskTime = view.findViewById(R.id.taskTime);
         addTaskEvent = view.findViewById(R.id.taskEvent);
-        createTaskbutton = view.findViewById(R.id.createTask);
+        createTaskbutton = view.findViewById(R.id.createGuest);
 
         addTaskDate.setOnTouchListener((v, motionEvent) -> {
             if(motionEvent.getAction() == MotionEvent.ACTION_UP) {

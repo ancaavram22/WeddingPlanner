@@ -16,37 +16,38 @@ import androidx.room.Room;
 import java.util.List;
 
 import am.solution.weddingplanner.R;
-import am.solution.weddingplanner.GuestsFragment;
-import am.solution.weddingplanner.data.GuestDAO;
-import am.solution.weddingplanner.data.GuestDataBase;
-import am.solution.weddingplanner.model.Guest;
+import am.solution.weddingplanner.VendorsFragment;
+import am.solution.weddingplanner.data.VendorDAO;
+import am.solution.weddingplanner.data.VendorDataBase;
+import am.solution.weddingplanner.model.Vendor;
 
-public class GuestAdapter extends RecyclerView.Adapter<GuestAdapter.MyViewHolder> {
+public class VendorAdapter extends RecyclerView.Adapter<VendorAdapter.MyViewHolder> {
 
     Context context;
-    List<Guest> guestList;
-    GuestsFragment guestsFragment;
+    List<Vendor> vendorList;
+    VendorsFragment vendorsFragment;
     Boolean  deleted = false;
-    public GuestAdapter(Context context, List<Guest> guestList) {
+    public VendorAdapter(Context context, List<Vendor> vendorList) {
         this.context = context;
-        this.guestList = guestList;
+        this.vendorList = vendorList;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.item_guest,parent,false));
+        return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.item_vendor,parent,false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Guest guest = guestList.get(position);
-        GuestDAO guestDao;
-        guestDao = Room.databaseBuilder(context, GuestDataBase.class, "guest_db.db").allowMainThreadQueries().build().getGuestDao();
+        Vendor vendor = vendorList.get(position);
+        VendorDAO vendorDao;
+        vendorDao = Room.databaseBuilder(context, VendorDataBase.class, "vendor_db.db").allowMainThreadQueries().build().getVendorDao();
 
-        holder.guestName.setText(guest.getGuestName());
-        holder.guestAvailablility.setText(guest.getGuestAvailability());
-        holder.noOfPers.setText(guest.getNoOfPers());
+        holder.vendorName.setText(vendor.getVendorName());
+        holder.paymentStatus.setText(vendor.getPaymentStatus());
+        int amount_str = vendor.getAmount();
+        holder.amount.setText(Integer.toString(amount_str));
 
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
@@ -61,7 +62,7 @@ public class GuestAdapter extends RecyclerView.Adapter<GuestAdapter.MyViewHolder
                     public boolean onMenuItemClick(MenuItem item) {
                         if(item.getTitle().equals("DELETE")){
 
-                            guestDao.delete(guest);
+                            vendorDao.delete(vendor);
                             deleted = true;
                             Toast.makeText(context.getApplicationContext(), "Deleted! Please REFRESH!",Toast.LENGTH_SHORT).show();
                         }
@@ -77,21 +78,20 @@ public class GuestAdapter extends RecyclerView.Adapter<GuestAdapter.MyViewHolder
     }
     @Override
     public int getItemCount() {
-        return guestList.size();
+        return vendorList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView guestName;
-        TextView guestAvailablility;
-        TextView noOfPers;
-
+        TextView vendorName;
+        TextView paymentStatus;
+        TextView amount;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            guestName = itemView.findViewById(R.id.guestName);
-            guestAvailablility = itemView.findViewById(R.id.description);
-            noOfPers = itemView.findViewById(R.id.amount);
+            vendorName = itemView.findViewById(R.id.vendorName);
+            paymentStatus = itemView.findViewById(R.id.paymentStatus);
+            amount = itemView.findViewById(R.id.amount);
 
         }
     }

@@ -87,7 +87,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
 
                             taskDao.delete(task);
 
-                            Toast.makeText(context.getApplicationContext(), "Note deleted",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context.getApplicationContext(), "Deleted! Please REFRESH!",Toast.LENGTH_SHORT).show();
                         }
                         return true;
                     }

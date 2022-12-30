@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:text="Add a guest"
+        android:text="Add a vendor"
         android:textColor="@android:color/black"
         android:textSize="22sp"
         tools:ignore="MissingPrefix" />
@@ -40,7 +40,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:alpha="0.8"
-        android:text="Fill the details below to add a guest"
+        android:text="Fill the details below to add a vendor"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="18sp"
@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="3dp"
         android:layout_marginTop="30dp"
-        android:text="Guest Name"
+        android:text="Vendor Name"
         tools:ignore="MissingPrefix" />
 
         <EditText
@@ -75,13 +75,14 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="3dp"
         android:layout_marginTop="30dp"
-        android:text="Number of Persons"
+        android:text="Amount"
         tools:ignore="MissingPrefix" />
 
     <EditText
         android:textSize="14sp"
         fontPath="fonts/nunito_light.ttf"
         android:layout_width="match_parent"
+        android:inputType="number"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:singleLine="true"
@@ -95,7 +96,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="30dp"
-        android:text="Confirmed" />
+        android:text="Paid" />
 
     <Button
         android:id="@+id/createVendor"
@@ -104,7 +105,7 @@
         android:layout_marginTop="40dp"
         android:background="@drawable/button"
         android:backgroundTint="@color/button"
-        android:text="Add guest"
+        android:text="Add vendor"
         android:textColor="@color/black" />
 
 </LinearLayout>

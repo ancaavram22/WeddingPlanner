@@ -12,19 +12,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import am.solution.weddingplanner.MainActivity;
+
 import am.solution.weddingplanner.R;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
+
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
 
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-
 import java.util.Calendar;
 
-import am.solution.weddingplanner.R;
 import am.solution.weddingplanner.TasksFragment;
 import am.solution.weddingplanner.data.TaskDAO;
 import am.solution.weddingplanner.data.TaskDataBase;
@@ -59,12 +56,12 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_create_task, container, false);
-        addTaskTitle = view.findViewById(R.id.addGuestName);
-        addTaskDescription = view.findViewById(R.id.addNoOfPersons);
+        addTaskTitle = view.findViewById(R.id.addVendorName);
+        addTaskDescription = view.findViewById(R.id.addAmount);
         addTaskDate = view.findViewById(R.id.taskDate);
         addTaskTime = view.findViewById(R.id.taskTime);
         addTaskEvent = view.findViewById(R.id.taskEvent);
-        createTaskbutton = view.findViewById(R.id.createGuest);
+        createTaskbutton = view.findViewById(R.id.createVendor);
 
         addTaskDate.setOnTouchListener((v, motionEvent) -> {
             if(motionEvent.getAction() == MotionEvent.ACTION_UP) {

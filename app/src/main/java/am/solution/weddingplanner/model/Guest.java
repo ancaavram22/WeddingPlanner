@@ -36,7 +36,7 @@ public class Guest implements Serializable {
 
     public String getGuestUser() { return guestUser; }
 
-    public void setTaskUser(String username) {
+    public void setGuestUser(String username) {
         this.guestUser = username;
     }
 
@@ -44,15 +44,15 @@ public class Guest implements Serializable {
         return guestName;
     }
 
-    public void setGuestName(String title) { this.guestAvailability = title; }
+    public void setGuestName(String guestName) { this.guestAvailability = guestName; }
 
     public String getGuestAvailability() {return guestAvailability; }
 
-    public void setGuestAvailability(String description) { this.guestAvailability = description; }
+    public void setGuestAvailability(String availability) { this.guestAvailability = availability; }
 
     public String getNoOfPers() { return noOfPers; }
 
-    public void setNoOfPers(String date) { this.noOfPers = date; }
+    public void setNoOfPers(String persons) { this.noOfPers = persons; }
 
 
 }

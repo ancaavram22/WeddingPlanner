@@ -74,7 +74,7 @@
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                 <ImageButton
-                    android:id="@+id/addGuestButton"
+                    android:id="@+id/addVendorButton"
                     android:layout_width="50dp"
                     android:layout_height="40dp"
                     android:layout_gravity="right"

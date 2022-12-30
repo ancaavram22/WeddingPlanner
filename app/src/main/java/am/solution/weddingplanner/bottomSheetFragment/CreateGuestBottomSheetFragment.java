@@ -1,12 +1,9 @@
 package am.solution.weddingplanner.bottomSheetFragment;
 
 import android.annotation.SuppressLint;
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -18,8 +15,6 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-
-import java.util.Calendar;
 
 import am.solution.weddingplanner.GuestsFragment;
 import am.solution.weddingplanner.R;
@@ -49,11 +44,11 @@ public class CreateGuestBottomSheetFragment extends BottomSheetDialogFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_create_guest, container, false);
-        guestName = view.findViewById(R.id.addGuestName);
+        guestName = view.findViewById(R.id.addVendorName);
 
         guestAvailability = view.findViewById(R.id.checkBox);
-        noOfPersons = view.findViewById(R.id.addNoOfPersons);
-        createGuestbutton = view.findViewById(R.id.createGuest);
+        noOfPersons = view.findViewById(R.id.addAmount);
+        createGuestbutton = view.findViewById(R.id.createVendor);
 
 
         Context context = getContext();

@@ -1,14 +1,12 @@
 package am.solution.weddingplanner;
 
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -51,7 +49,7 @@ public class TasksFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_tasks, container, false);
         swipeRefreshLayout = view.findViewById(R.id.swipe_refresh);
 
-        ImageButton addTask = view.findViewById(R.id.addGuestButton);
+        ImageButton addTask = view.findViewById(R.id.addVendorButton);
         ImageButton deleteTask = view.findViewById(R.id.deleteGuestButton);
 
 

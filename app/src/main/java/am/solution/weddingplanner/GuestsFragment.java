@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -51,7 +50,7 @@ public class GuestsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_guests, container, false);
         swipeRefreshLayout = view.findViewById(R.id.swipeContainer);
 
-        ImageButton addGuest = view.findViewById(R.id.addGuestButton);
+        ImageButton addGuest = view.findViewById(R.id.addVendorButton);
 
 
         addGuest.setOnClickListener(new View.OnClickListener() {

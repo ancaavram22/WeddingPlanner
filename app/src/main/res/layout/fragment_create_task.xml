@@ -64,7 +64,7 @@
             android:singleLine="true"
             android:background="@drawable/btn_border"
             android:padding="10dp"
-            android:id="@+id/addGuestName"
+            android:id="@+id/addVendorName"
             tools:ignore="MissingPrefix" />
 
     <TextView
@@ -85,7 +85,7 @@
         android:singleLine="true"
         android:background="@drawable/btn_border"
         android:padding="10dp"
-        android:id="@+id/addNoOfPersons"
+        android:id="@+id/addAmount"
         tools:ignore="MissingPrefix" />
 
     <TextView
@@ -152,7 +152,7 @@
         tools:ignore="MissingPrefix" />
 
     <Button
-        android:id="@+id/createGuest"
+        android:id="@+id/createVendor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"

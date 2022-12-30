@@ -30,8 +30,8 @@
                 android:ems="0"
                 android:inputType="textPersonName"
                 android:singleLine="false"
-                android:text="Pers."
-                android:textSize="20sp" />
+                android:text="Amount"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/amount"
@@ -40,7 +40,7 @@
                 android:layout_gravity="center"
                 android:text="18"
                 android:textColor="@color/colorAccent"
-                android:textSize="24sp" />
+                android:textSize="16sp" />
 
         </LinearLayout>
 
@@ -66,7 +66,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/guestName"
+                android:id="@+id/vendorName"
                 android:layout_width="249dp"
                 android:layout_height="80dp"
                 android:layout_marginTop="6dp"
@@ -77,7 +77,7 @@
                 tools:text="Full house" />
 
             <TextView
-                android:id="@+id/description"
+                android:id="@+id/paymentStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:alpha="0.5"

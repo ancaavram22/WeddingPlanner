@@ -49,7 +49,7 @@ public class Task implements Serializable {
         return taskTitle;
     }
 
-    public void setTaskTitle(String title) { this.taskDescription = title; }
+    public void setTaskTitle(String title) { this.taskTitle = title; }
 
     public String getTaskDescription() {return taskDescription; }
 

@@ -1,4 +1,5 @@
 package am.solution.weddingplanner.adapters;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -7,18 +8,19 @@ import android.view.ViewGroup;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
-
 import am.solution.weddingplanner.R;
 import am.solution.weddingplanner.TasksFragment;
+import am.solution.weddingplanner.bottomSheetFragment.CreateTaskBottomSheetFragment;
 import am.solution.weddingplanner.data.TaskDAO;
 import am.solution.weddingplanner.data.TaskDataBase;
 import am.solution.weddingplanner.model.Task;
@@ -75,7 +77,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public boolean onLongClick(View v) {
+            public boolean onLongClick(View v){
 
                 PopupMenu menu = new PopupMenu(context,v);
                 menu.getMenu().add("DELETE");
@@ -87,7 +89,16 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
 
                             taskDao.delete(task);
 
-                            Toast.makeText(context.getApplicationContext(), "Note deleted",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context.getApplicationContext(), "Deleted! Please REFRESH!",Toast.LENGTH_SHORT).show();
+                        }
+                        else if(item.getTitle().equals("EDIT")){
+
+                            CreateTaskBottomSheetFragment fragment = new CreateTaskBottomSheetFragment();
+                            fragment.setTaskId(task.getId(), true, tasksFragment);
+                            FragmentManager fm = ((FragmentActivity) context).getSupportFragmentManager();
+                            FragmentTransaction ft = fm.beginTransaction();
+                            ft.replace(R.id.container, fragment);
+                            ft.commit();
                         }
                         return true;
                     }

@@ -64,7 +64,7 @@
             android:singleLine="true"
             android:background="@drawable/btn_border"
             android:padding="10dp"
-            android:id="@+id/addVendorName"
+            android:id="@+id/taskTitle"
             tools:ignore="MissingPrefix" />
 
     <TextView
@@ -85,7 +85,7 @@
         android:singleLine="true"
         android:background="@drawable/btn_border"
         android:padding="10dp"
-        android:id="@+id/addAmount"
+        android:id="@+id/taskDescription"
         tools:ignore="MissingPrefix" />
 
     <TextView
@@ -152,7 +152,7 @@
         tools:ignore="MissingPrefix" />
 
     <Button
-        android:id="@+id/createVendor"
+        android:id="@+id/createTask"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"

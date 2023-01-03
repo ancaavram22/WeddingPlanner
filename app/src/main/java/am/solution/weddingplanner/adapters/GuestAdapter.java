@@ -10,6 +10,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
@@ -17,6 +20,8 @@ import java.util.List;
 
 import am.solution.weddingplanner.R;
 import am.solution.weddingplanner.GuestsFragment;
+import am.solution.weddingplanner.bottomSheetFragment.CreateGuestBottomSheetFragment;
+import am.solution.weddingplanner.bottomSheetFragment.CreateTaskBottomSheetFragment;
 import am.solution.weddingplanner.data.GuestDAO;
 import am.solution.weddingplanner.data.GuestDataBase;
 import am.solution.weddingplanner.model.Guest;
@@ -42,11 +47,12 @@ public class GuestAdapter extends RecyclerView.Adapter<GuestAdapter.MyViewHolder
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Guest guest = guestList.get(position);
         GuestDAO guestDao;
-        guestDao = Room.databaseBuilder(context, GuestDataBase.class, "guest_db.db").allowMainThreadQueries().build().getGuestDao();
+        guestDao = Room.databaseBuilder(context, GuestDataBase.class, "guest_db2.db").allowMainThreadQueries().build().getGuestDao();
 
         holder.guestName.setText(guest.getGuestName());
         holder.guestAvailablility.setText(guest.getGuestAvailability());
-        holder.noOfPers.setText(guest.getNoOfPers());
+        int pers_str = guest.getNoOfPers();
+        holder.noOfPers.setText(Integer.toString(pers_str));
 
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
@@ -64,6 +70,15 @@ public class GuestAdapter extends RecyclerView.Adapter<GuestAdapter.MyViewHolder
                             guestDao.delete(guest);
                             deleted = true;
                             Toast.makeText(context.getApplicationContext(), "Deleted! Please REFRESH!",Toast.LENGTH_SHORT).show();
+                        }
+                        else if(item.getTitle().equals("EDIT")){
+
+                            CreateGuestBottomSheetFragment fragment = new CreateGuestBottomSheetFragment();
+                            fragment.setGuestId(guest.getId(), true, guestsFragment);
+                            FragmentManager fm = ((FragmentActivity) context).getSupportFragmentManager();
+                            FragmentTransaction ft = fm.beginTransaction();
+                            ft.replace(R.id.container, fragment);
+                            ft.commit();
                         }
                         return true;
                     }
@@ -89,9 +104,9 @@ public class GuestAdapter extends RecyclerView.Adapter<GuestAdapter.MyViewHolder
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            guestName = itemView.findViewById(R.id.guestName);
-            guestAvailablility = itemView.findViewById(R.id.description);
-            noOfPers = itemView.findViewById(R.id.amount);
+            guestName = itemView.findViewById(R.id.name);
+            guestAvailablility = itemView.findViewById(R.id.availability);
+            noOfPers = itemView.findViewById(R.id.persons);
 
         }
     }

@@ -7,17 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import am.solution.weddingplanner.adapters.GuestAdapter;
 import am.solution.weddingplanner.adapters.TaskAdapter;
 import am.solution.weddingplanner.bottomSheetFragment.CreateGuestBottomSheetFragment;
@@ -50,7 +47,7 @@ public class GuestsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_guests, container, false);
         swipeRefreshLayout = view.findViewById(R.id.swipeContainer);
 
-        ImageButton addGuest = view.findViewById(R.id.addVendorButton);
+        ImageButton addGuest = view.findViewById(R.id.addGuestButton);
 
 
         addGuest.setOnClickListener(new View.OnClickListener() {
@@ -93,7 +90,7 @@ public class GuestsFragment extends Fragment {
 
         //get all existing guests for current user
         Context context = getContext();
-        guestsForCurrUser = Room.databaseBuilder(context, GuestDataBase.class, "guest_db.db").allowMainThreadQueries().build().getGuestDao();
+        guestsForCurrUser = Room.databaseBuilder(context, GuestDataBase.class, "guest_db2.db").allowMainThreadQueries().build().getGuestDao();
 
         //list with guests
         List<Guest> guestList = guestsForCurrUser.getAllGuests(username);

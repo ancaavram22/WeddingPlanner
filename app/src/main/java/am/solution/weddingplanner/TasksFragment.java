@@ -7,16 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import am.solution.weddingplanner.adapters.TaskAdapter;
 import am.solution.weddingplanner.bottomSheetFragment.CreateTaskBottomSheetFragment;
 import am.solution.weddingplanner.data.TaskDAO;
@@ -31,10 +28,6 @@ public class TasksFragment extends Fragment {
     SwipeRefreshLayout swipeRefreshLayout;
     @BindView(R.id.taskRecycler)
     RecyclerView taskRecycler;
-    @BindView(R.id.noDataImage)
-    ImageView noDataImage;
-    TaskAdapter taskAdapter;
-    List<Task> tasks = new ArrayList<>();
 
     //to get username;
     private User user;
@@ -49,8 +42,7 @@ public class TasksFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_tasks, container, false);
         swipeRefreshLayout = view.findViewById(R.id.swipe_refresh);
 
-        ImageButton addTask = view.findViewById(R.id.addVendorButton);
-        ImageButton deleteTask = view.findViewById(R.id.deleteGuestButton);
+        ImageButton addTask = view.findViewById(R.id.addTaskButton);
 
 
 

@@ -12,6 +12,7 @@ public class Vendor implements Serializable {
     @PrimaryKey(autoGenerate = true)
     @NonNull
     private int id;
+
     private String vendorUser;
     private String vendorName;
     private String paymentStatus;
@@ -43,7 +44,7 @@ public class Vendor implements Serializable {
         return vendorName;
     }
 
-    public void setVendorName(String vendorName) { this.paymentStatus = vendorName; }
+    public void setVendorName(String vendorName) { this.vendorName = vendorName; }
 
     public String getPaymentStatus() {return paymentStatus; }
 

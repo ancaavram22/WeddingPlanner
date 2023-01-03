@@ -47,7 +47,6 @@ public class VendorsFragment extends Fragment {
 
         ImageButton addVendor = view.findViewById(R.id.addVendorButton);
 
-
         addVendor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

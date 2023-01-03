@@ -3,7 +3,6 @@ package am.solution.weddingplanner.bottomSheetFragment;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +10,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
-
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import am.solution.weddingplanner.R;
 import am.solution.weddingplanner.VendorsFragment;
@@ -26,7 +23,6 @@ import am.solution.weddingplanner.model.Vendor;
 
 public class CreateVendorBottomSheetFragment extends BottomSheetDialogFragment {
 
-
     EditText vendorName;
     CheckBox paymentStatus;
     EditText amount;
@@ -35,6 +31,16 @@ public class CreateVendorBottomSheetFragment extends BottomSheetDialogFragment {
 
     private VendorDAO vendorDAO;
     private User user;
+
+    VendorsFragment activity;
+    boolean isEdit;
+    int vendorId;
+
+    public void setVendorId(int vendorID, boolean isEdit, VendorsFragment activity) {
+        this.vendorId = vendorID;
+        this.isEdit = isEdit;
+        this.activity = activity;
+    }
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -52,7 +58,21 @@ public class CreateVendorBottomSheetFragment extends BottomSheetDialogFragment {
         vendorDAO = Room.databaseBuilder(context, VendorDataBase.class, "vendor_db.db").allowMainThreadQueries().build().getVendorDao();
         user = (User) getActivity().getIntent().getSerializableExtra("User");
 
-
+        if(isEdit){
+            Vendor vendorEdit = vendorDAO.selectDataFromAnId(vendorId);
+            vendorName.setText(vendorEdit.getVendorName());
+            if(vendorEdit.getPaymentStatus().equalsIgnoreCase("Paid"))
+            {
+                paymentStatus.setChecked(true);
+                System.out.println(vendorEdit.getPaymentStatus());
+            }
+            else
+            {
+                paymentStatus.setChecked(false);
+            }
+            int amount_int = vendorEdit.getAmount();
+            amount.setText(Integer.toString(amount_int));
+        }
         createVendorbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,13 +91,23 @@ public class CreateVendorBottomSheetFragment extends BottomSheetDialogFragment {
                     String amount_str = CreateVendorBottomSheetFragment.this.amount.getText().toString().trim();
                     int amount = Integer.parseInt(amount_str);
 
-                    Vendor vendor = new Vendor(vendorUser, vendorName, paymentStatus, amount);
-                    vendorDAO.insert(vendor);
-                    Toast.makeText(context, "Vendor added!", Toast.LENGTH_SHORT).show();
+                    if(!isEdit) {
+                        Vendor vendor = new Vendor(vendorUser, vendorName, paymentStatus, amount);
+                        vendorDAO.insert(vendor);
+                        Toast.makeText(context, "Vendor added!", Toast.LENGTH_SHORT).show();
 
-                    FragmentTransaction fr = getParentFragmentManager().beginTransaction();
-                    fr.replace(R.id.container, new VendorsFragment());
-                    fr.commit();
+                        FragmentTransaction fr = getParentFragmentManager().beginTransaction();
+                        fr.replace(R.id.container, new VendorsFragment());
+                        fr.commit();
+                    }
+                    else {
+                        vendorDAO.updateAnExistingRow(vendorId, vendorUser, vendorName, paymentStatus, amount);
+                        Toast.makeText(context, "Vendor updated!", Toast.LENGTH_SHORT).show();
+
+                        FragmentTransaction fr = getParentFragmentManager().beginTransaction();
+                        fr.replace(R.id.container, new VendorsFragment());
+                        fr.commit();
+                    }
                 }
                 else {
                     //empty fields

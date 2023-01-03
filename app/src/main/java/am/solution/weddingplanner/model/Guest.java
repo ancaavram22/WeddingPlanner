@@ -15,10 +15,10 @@ public class Guest implements Serializable {
     private String guestUser;
     private String guestName;
     private String guestAvailability;
-    private String noOfPers;
+    private int noOfPers;
 
 
-    public Guest(String guestUser, String guestName, String guestAvailability, String noOfPers) {
+    public Guest(String guestUser, String guestName, String guestAvailability, int noOfPers) {
         this.guestUser = guestUser;
         this.guestName = guestName;
         this.guestAvailability = guestAvailability;
@@ -44,15 +44,15 @@ public class Guest implements Serializable {
         return guestName;
     }
 
-    public void setGuestName(String guestName) { this.guestAvailability = guestName; }
+    public void setGuestName(String guestName) { this.guestName = guestName; }
 
     public String getGuestAvailability() {return guestAvailability; }
 
     public void setGuestAvailability(String availability) { this.guestAvailability = availability; }
 
-    public String getNoOfPers() { return noOfPers; }
+    public int getNoOfPers() { return noOfPers; }
 
-    public void setNoOfPers(String persons) { this.noOfPers = persons; }
+    public void setNoOfPers(int persons) { this.noOfPers = persons; }
 
 
 }

@@ -12,16 +12,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import am.solution.weddingplanner.R;
-
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-
 import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
-
 import java.util.Calendar;
-
 import am.solution.weddingplanner.TasksFragment;
 import am.solution.weddingplanner.data.TaskDAO;
 import am.solution.weddingplanner.data.TaskDataBase;
@@ -46,9 +41,16 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
     DatePickerDialog datePickerDialog;
 
     TasksFragment activity;
-
     private TaskDAO taskDao;
     private User user;
+    boolean isEdit;
+    int taskId;
+
+    public void setTaskId(int taskId, boolean isEdit, TasksFragment activity) {
+        this.taskId = taskId;
+        this.isEdit = isEdit;
+        this.activity = activity;
+    }
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -56,12 +58,26 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_create_task, container, false);
-        addTaskTitle = view.findViewById(R.id.addVendorName);
-        addTaskDescription = view.findViewById(R.id.addAmount);
+
+        Context context = getContext();
+        taskDao = Room.databaseBuilder(context, TaskDataBase.class, "task_db.db").allowMainThreadQueries().build().getTaskDao();
+        user = (User) getActivity().getIntent().getSerializableExtra("User");
+
+        addTaskTitle = view.findViewById(R.id.taskTitle);
+        addTaskDescription = view.findViewById(R.id.taskDescription);
         addTaskDate = view.findViewById(R.id.taskDate);
         addTaskTime = view.findViewById(R.id.taskTime);
         addTaskEvent = view.findViewById(R.id.taskEvent);
-        createTaskbutton = view.findViewById(R.id.createVendor);
+        createTaskbutton = view.findViewById(R.id.createTask);
+
+        if(isEdit){
+            Task taskEdit = taskDao.selectDataFromAnId(taskId);
+            addTaskTitle.setText(taskEdit.getTaskTitle());
+            addTaskDescription.setText(taskEdit.getTaskDescription());
+            addTaskDate.setText(taskEdit.getTaskDate());
+            addTaskTime.setText(taskEdit.getTaskTime());
+            addTaskEvent.setText(taskEdit.getTaskEvent());
+        }
 
         addTaskDate.setOnTouchListener((v, motionEvent) -> {
             if(motionEvent.getAction() == MotionEvent.ACTION_UP) {
@@ -98,11 +114,6 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
             return true;
         });
 
-        Context context = getContext();
-        taskDao = Room.databaseBuilder(context, TaskDataBase.class, "task_db.db").allowMainThreadQueries().build().getTaskDao();
-        user = (User) getActivity().getIntent().getSerializableExtra("User");
-
-
         createTaskbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -115,13 +126,23 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
                     String taskTime = addTaskTime.getText().toString().trim();
                     String taskEvent = addTaskEvent.getText().toString().trim();
 
-                    Task task = new Task(taskUser, taskTitle, taskDescription, taskDate, taskTime, taskEvent);
-                    taskDao.insert(task);
-                    Toast.makeText(context, "Task created!", Toast.LENGTH_SHORT).show();
+                    if(!isEdit) {
+                        Task task = new Task(taskUser, taskTitle, taskDescription, taskDate, taskTime, taskEvent);
+                        taskDao.insert(task);
+                        Toast.makeText(context, "Task created!", Toast.LENGTH_SHORT).show();
 
-                    FragmentTransaction fr = getParentFragmentManager().beginTransaction();
-                    fr.replace(R.id.container, new TasksFragment());
-                    fr.commit();
+                        FragmentTransaction fr = getParentFragmentManager().beginTransaction();
+                        fr.replace(R.id.container, new TasksFragment());
+                        fr.commit();
+                    }
+                    else{
+                        taskDao.updateAnExistingRow(taskId, taskUser, taskTitle, taskDescription, taskDate, taskTime, taskEvent);
+                        Toast.makeText(context, "Task updated!", Toast.LENGTH_SHORT).show();
+
+                        FragmentTransaction fr = getParentFragmentManager().beginTransaction();
+                        fr.replace(R.id.container, new TasksFragment());
+                        fr.commit();
+                    }
                 }
                 else {
                     //empty fields
@@ -129,9 +150,10 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
                 }
             }
         });
+
+
         return view;
     }
-
     public boolean validateFields() {
         if(addTaskTitle.getText().toString().equalsIgnoreCase("")) {
             return false;
@@ -145,11 +167,6 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
         else if(addTaskTime.getText().toString().equalsIgnoreCase("")) {
             return false;
         }
-        else if(addTaskEvent.getText().toString().equalsIgnoreCase("")) {
-            return false;
-        }
-        else {
-            return true;
-        }
+        else return !addTaskEvent.getText().toString().equalsIgnoreCase("");
     }
 }

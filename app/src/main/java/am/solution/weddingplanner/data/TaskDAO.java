@@ -21,4 +21,11 @@ public interface TaskDAO {
 
     @Delete
     void delete(Task task);
+
+    @Query("SELECT * FROM Task WHERE id = :taskId")
+    Task selectDataFromAnId(int taskId);
+
+    @Query("UPDATE Task SET taskUser = :taskUser, taskTitle = :taskTitle, taskDescription = :taskDescription, taskDate = :taskDate, taskTime = :taskTime, taskEvent = :taskEvent WHERE id = :taskId")
+    void updateAnExistingRow(int taskId, String taskUser, String taskTitle, String taskDescription, String taskDate, String taskTime,
+                             String taskEvent);
 }

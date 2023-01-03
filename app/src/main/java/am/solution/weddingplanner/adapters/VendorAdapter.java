@@ -8,15 +8,16 @@ import android.view.ViewGroup;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
-
 import java.util.List;
-
 import am.solution.weddingplanner.R;
 import am.solution.weddingplanner.VendorsFragment;
+import am.solution.weddingplanner.bottomSheetFragment.CreateVendorBottomSheetFragment;
 import am.solution.weddingplanner.data.VendorDAO;
 import am.solution.weddingplanner.data.VendorDataBase;
 import am.solution.weddingplanner.model.Vendor;
@@ -65,6 +66,15 @@ public class VendorAdapter extends RecyclerView.Adapter<VendorAdapter.MyViewHold
                             vendorDao.delete(vendor);
                             deleted = true;
                             Toast.makeText(context.getApplicationContext(), "Deleted! Please REFRESH!",Toast.LENGTH_SHORT).show();
+                        }
+                        else if(item.getTitle().equals("EDIT")){
+
+                            CreateVendorBottomSheetFragment fragment = new CreateVendorBottomSheetFragment();
+                            fragment.setVendorId(vendor.getId(), true, vendorsFragment);
+                            FragmentManager fm = ((FragmentActivity) context).getSupportFragmentManager();
+                            FragmentTransaction ft = fm.beginTransaction();
+                            ft.replace(R.id.container, fragment);
+                            ft.commit();
                         }
                         return true;
                     }

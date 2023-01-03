@@ -9,6 +9,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
+import am.solution.weddingplanner.bottomSheetFragment.ChangePassFragment;
+import am.solution.weddingplanner.bottomSheetFragment.CreateTaskBottomSheetFragment;
 
 public class ProfileFragment extends Fragment {
     TextView changePassword, wedDetails;
@@ -28,8 +32,9 @@ public class ProfileFragment extends Fragment {
         changePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ChangePassActivity.class);
-                startActivity(intent);
+                FragmentTransaction fr =getParentFragmentManager().beginTransaction();
+                fr.replace(R.id.container, new ChangePassFragment());
+                fr.commit();
             }
         });
 

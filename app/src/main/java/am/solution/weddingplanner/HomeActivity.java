@@ -22,6 +22,7 @@ public class HomeActivity extends AppCompatActivity {
     ProfileFragment profileFragment = new ProfileFragment();
     GuestsFragment guestsFragment = new GuestsFragment();
     VendorsFragment vendorsFragment = new VendorsFragment();
+    public User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

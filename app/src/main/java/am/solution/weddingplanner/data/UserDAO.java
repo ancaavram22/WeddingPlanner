@@ -14,9 +14,9 @@ public interface UserDAO {
     @Insert
     void insert(User user);
 
-    @Update
-    void update(User user);
-
     @Delete
     void delete(User user);
+
+    @Query("UPDATE user SET password = :newPass WHERE userName = :username")
+    void updateAnExistingRow(String newPass, String username);
 }

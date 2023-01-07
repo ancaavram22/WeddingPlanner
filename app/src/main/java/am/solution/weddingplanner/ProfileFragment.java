@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import am.solution.weddingplanner.bottomSheetFragment.ChangePassFragment;
 import am.solution.weddingplanner.bottomSheetFragment.CreateTaskBottomSheetFragment;
+import am.solution.weddingplanner.bottomSheetFragment.WeddDetailsFragment;
 
 public class ProfileFragment extends Fragment {
     TextView changePassword, wedDetails;
@@ -41,8 +42,9 @@ public class ProfileFragment extends Fragment {
         wedDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), WeddingDetailsActivity.class);
-                startActivity(intent);
+                FragmentTransaction fr =getParentFragmentManager().beginTransaction();
+                fr.replace(R.id.container, new WeddDetailsFragment());
+                fr.commit();
             }
         });
 

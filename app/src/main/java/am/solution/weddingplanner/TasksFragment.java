@@ -6,14 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ImageView;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
-import java.util.ArrayList;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import java.util.List;
+
 import am.solution.weddingplanner.adapters.TaskAdapter;
 import am.solution.weddingplanner.bottomSheetFragment.CreateTaskBottomSheetFragment;
 import am.solution.weddingplanner.data.TaskDAO;
@@ -21,7 +23,6 @@ import am.solution.weddingplanner.data.TaskDataBase;
 import am.solution.weddingplanner.model.Task;
 import am.solution.weddingplanner.model.User;
 import butterknife.BindView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class TasksFragment extends Fragment {
 

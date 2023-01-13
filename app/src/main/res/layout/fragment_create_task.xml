@@ -2,7 +2,8 @@
 <ScrollView android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white">
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -12,60 +13,65 @@
     android:paddingRight="20dp"
     android:paddingTop="30dp"
     android:paddingBottom="50dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="346dp"
+        android:layout_height="50sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="60dp"
+        android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/ic_add_black_24dp"
-            android:scaleType="centerCrop" />
+            android:id="@+id/imageView"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/login" />
 
         <TextView
-            fontPath="fonts/nunito_extra_bold.ttf"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
+            android:id="@+id/tasks_txt"
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/moondancefont"
+            android:gravity="center"
+            android:textColor="@color/black"
             android:text="Add a task"
-            android:textColor="@android:color/black"
-            android:textSize="22sp"
-            tools:ignore="MissingPrefix" />
+            android:textSize="45dp" />
 
-        <TextView
-            fontPath="fonts/nunito_light.ttf"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:text="Fill the details below to add a task into your TODO"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"
-            android:alpha="0.8"
-            android:textSize="18sp"
-            tools:ignore="MissingPrefix" />
+    </LinearLayout>
 
-        <TextView
-            android:layout_marginLeft="3dp"
-            fontPath="fonts/nunito_light.ttf"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="Task title"
-            tools:ignore="MissingPrefix" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="10dp"
+        android:text="Task Title"
+        android:fontFamily="@font/moondancefont"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:ignore="MissingPrefix" />
 
-        <EditText
-            android:textSize="14sp"
-            fontPath="fonts/nunito_light.ttf"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:singleLine="true"
-            android:background="@drawable/btn_border"
-            android:padding="10dp"
-            android:id="@+id/taskTitle"
-            tools:ignore="MissingPrefix" />
+    <EditText
+        android:id="@+id/taskTitle"
+        fontPath="fonts/nunito_light.ttf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/btn_border"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        tools:ignore="MissingPrefix,SpeakableTextPresentCheck" />
 
     <TextView
         android:layout_marginLeft="3dp"
@@ -73,20 +79,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:fontFamily="@font/moondancefont"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:text="Task description"
         tools:ignore="MissingPrefix" />
 
     <EditText
-        android:textSize="14sp"
+        android:id="@+id/taskDescription"
         fontPath="fonts/nunito_light.ttf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:singleLine="true"
         android:background="@drawable/btn_border"
+        android:minHeight="48dp"
         android:padding="10dp"
-        android:id="@+id/taskDescription"
-        tools:ignore="MissingPrefix" />
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        tools:ignore="MissingPrefix,SpeakableTextPresentCheck" />
 
     <TextView
         android:layout_marginLeft="3dp"
@@ -95,19 +107,25 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="Task date"
+        android:fontFamily="@font/moondancefont"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
         tools:ignore="MissingPrefix" />
 
     <EditText
-        android:textSize="14sp"
+        android:id="@+id/taskDate"
         fontPath="fonts/nunito_light.ttf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:singleLine="true"
         android:background="@drawable/btn_border"
+        android:minHeight="48dp"
         android:padding="10dp"
-        android:id="@+id/taskDate"
-        tools:ignore="MissingPrefix" />
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        tools:ignore="MissingPrefix,SpeakableTextPresentCheck" />
 
     <TextView
         android:layout_marginLeft="3dp"
@@ -116,19 +134,25 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="Task time"
+        android:fontFamily="@font/moondancefont"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
         tools:ignore="MissingPrefix" />
 
     <EditText
-        android:textSize="14sp"
+        android:id="@+id/taskTime"
         fontPath="fonts/nunito_light.ttf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:singleLine="true"
         android:background="@drawable/btn_border"
+        android:minHeight="48dp"
         android:padding="10dp"
-        android:id="@+id/taskTime"
-        tools:ignore="MissingPrefix" />
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        tools:ignore="MissingPrefix,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
     <TextView
         android:layout_marginLeft="3dp"
@@ -137,29 +161,37 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="Add an event"
+        android:fontFamily="@font/moondancefont"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
         tools:ignore="MissingPrefix" />
 
     <EditText
-        android:textSize="14sp"
+        android:id="@+id/taskEvent"
         fontPath="fonts/nunito_light.ttf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:singleLine="true"
         android:background="@drawable/btn_border"
+        android:minHeight="48dp"
         android:padding="10dp"
-        android:id="@+id/taskEvent"
-        tools:ignore="MissingPrefix" />
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        tools:ignore="MissingPrefix,SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/createTask"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="230dp"
+        android:layout_height="48dp"
         android:layout_marginTop="40dp"
-        android:background="@drawable/button"
-        android:text="Add task"
         android:backgroundTint="@color/button"
-        android:textColor="@color/black" />
+        android:fontFamily="@font/moondancefont"
+        android:layout_gravity="center"
+        android:text="Add task"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
 
 </LinearLayout>
 </ScrollView>

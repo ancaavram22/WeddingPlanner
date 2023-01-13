@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WeddingDetailsActivity">
+    android:background="@color/white">
 
     <ImageView
         android:id="@+id/logo"
@@ -55,8 +55,9 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/moondancefont"
                 android:text="Bride"
+                android:textStyle="bold"
                 android:textColor="#000000"
-                android:textSize="20dp" />
+                android:textSize="25dp" />
 
             <EditText
                 android:id="@+id/bride_input"
@@ -64,10 +65,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/edit_text"
-                android:fontFamily="@font/moondancefont"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
                 android:padding="10dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/moondancefont"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
@@ -76,8 +78,9 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/moondancefont"
                 android:text="Groom"
+                android:textStyle="bold"
                 android:textColor="#000000"
-                android:textSize="20dp" />
+                android:textSize="25dp" />
 
             <EditText
                 android:id="@+id/groom_input"
@@ -85,10 +88,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/edit_text"
-                android:fontFamily="@font/moondancefont"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
                 android:padding="10dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/moondancefont"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
@@ -98,7 +102,8 @@
                 android:fontFamily="@font/moondancefont"
                 android:text="Budget"
                 android:textColor="#000000"
-                android:textSize="20dp" />
+                android:textSize="25dp"
+                android:textStyle="bold"/>
 
             <EditText
                 android:id="@+id/budget_input"
@@ -106,8 +111,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/edit_text"
+                android:textColor="@color/black"
                 android:fontFamily="@font/moondancefont"
-                android:inputType="numberDecimal"
+                android:inputType="number"
                 android:minHeight="48dp"
                 android:padding="10dp"
                 tools:ignore="SpeakableTextPresentCheck" />
@@ -119,7 +125,8 @@
                 android:fontFamily="@font/moondancefont"
                 android:text="Date"
                 android:textColor="#000000"
-                android:textSize="20dp" />
+                android:textStyle="bold"
+                android:textSize="25dp" />
 
             <EditText
                 android:id="@+id/date_input"
@@ -130,6 +137,8 @@
                 android:inputType="date"
                 android:minHeight="48dp"
                 android:padding="10dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/moondancefont"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
@@ -139,7 +148,8 @@
                 android:fontFamily="@font/moondancefont"
                 android:text="Number of Guests Expected"
                 android:textColor="#000000"
-                android:textSize="20dp" />
+                android:textSize="25dp"
+                android:textStyle="bold"/>
 
             <EditText
                 android:id="@+id/guests_input"
@@ -147,10 +157,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/edit_text"
-                android:fontFamily="@font/moondancefont"
                 android:inputType="number"
                 android:minHeight="48dp"
                 android:padding="10dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/moondancefont"
                 tools:ignore="SpeakableTextPresentCheck" />
 
 
@@ -161,7 +172,8 @@
                 android:fontFamily="@font/moondancefont"
                 android:text="Location"
                 android:textColor="#000000"
-                android:textSize="20dp" />
+                android:textSize="25dp"
+                android:textStyle="bold"/>
 
 
             <EditText
@@ -170,16 +182,17 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/edit_text"
-                android:fontFamily="@font/moondancefont"
                 android:inputType="text"
                 android:minHeight="48dp"
                 android:padding="10dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/moondancefont"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <Button
                 android:id="@+id/buttonSave"
                 android:layout_width="106dp"
-                android:layout_height="wrap_content"
+                android:layout_height="150dp"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/button"
                 android:fontFamily="@font/moondancefont"
@@ -187,7 +200,9 @@
                 android:text="Save"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textSize="17sp"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
                 app:strokeColor="@color/button" />
 
 

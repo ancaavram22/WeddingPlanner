@@ -18,7 +18,7 @@ import am.solution.weddingplanner.model.User;
 
 public class MainActivity extends AppCompatActivity {
     EditText editTextEmail, editTextPassword;
-    Button buttonLogin, resetPassByMail;
+    Button buttonLogin;
     TextView textViewRegister, textViewReset;
     UserDAO db;
     UserDataBase dataBase;

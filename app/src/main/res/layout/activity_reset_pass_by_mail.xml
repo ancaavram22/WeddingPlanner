@@ -12,9 +12,9 @@
         android:layout_height="132dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="104dp"
-        android:layout_marginBottom="515dp"
-        app:srcCompat="@drawable/key_svgrepo_com"/>
+        android:layout_marginEnd="110dp"
+        android:layout_marginBottom="443dp"
+        app:srcCompat="@drawable/key_svgrepo_com" />
 
     <Button
         android:id="@+id/buttonResetPass"
@@ -23,8 +23,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="110dp"
-        android:layout_marginBottom="82dp"
+        android:layout_marginEnd="108dp"
+        android:layout_marginBottom="150dp"
         android:backgroundTint="@color/button"
         android:fontFamily="@font/moondancefont"
         android:foreground="?android:attr/selectableItemBackground"
@@ -35,8 +35,8 @@
 
     <LinearLayout
         android:id="@+id/input_group"
-        android:layout_width="386dp"
-        android:layout_height="259dp"
+        android:layout_width="351dp"
+        android:layout_height="207dp"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/edit_text"
-            android:inputType="textPassword"
+            android:inputType="textEmailAddress"
             android:padding="15dp"
             tools:ignore="SpeakableTextPresentCheck" />
 

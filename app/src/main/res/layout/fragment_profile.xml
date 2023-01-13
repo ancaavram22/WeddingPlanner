@@ -36,6 +36,7 @@
             android:fontFamily="@font/moondancefont"
             android:gravity="center"
             android:text="Account"
+            android:textColor="@color/black"
             android:textSize="48dp" />
 
     </LinearLayout>
@@ -58,8 +59,8 @@
         android:layout_height="46dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="39dp"
-        android:layout_marginBottom="440dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="432dp"
         android:fontFamily="@font/moondancefont"
         android:gravity="center"
         android:text="Last Name"
@@ -71,8 +72,8 @@
         android:layout_height="48dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="438dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="437dp"
         android:fontFamily="@font/moondancefont"
         android:gravity="center"
         android:text="First Name"
@@ -97,15 +98,16 @@
 
     <Switch
         android:id="@+id/notification_switch"
-        android:layout_width="343dp"
-        android:layout_height="60dp"
+        android:layout_width="334dp"
+        android:layout_height="54dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="201dp"
+        android:layout_marginBottom="207dp"
         android:fontFamily="@font/moondancefont"
         android:text="Notifications"
         android:textAllCaps="true"
+        android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold" />
 
@@ -137,7 +139,7 @@
         android:layout_marginBottom="53dp"
         android:fontFamily="@font/moondancefont"
         android:text="Log out"
-        android:background="@color/button"
+        android:backgroundTint="@color/button"
         android:textColor="@color/black"
         android:textStyle="bold" />
 

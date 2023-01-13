@@ -1,14 +1,11 @@
 package am.solution.weddingplanner.data;
 
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
-import androidx.room.Update;
 
 import java.util.List;
 
-import am.solution.weddingplanner.model.Task;
 import am.solution.weddingplanner.model.WeddDetails;
 
 @Dao
@@ -24,6 +21,9 @@ public interface DetailsDAO {
                              int budget, int noOfGuests);
     @Query("SELECT * FROM WeddDetails WHERE detailsUser = :username")
     WeddDetails selectDataFromUser(String username);
+
+    @Query("SELECT date FROM WeddDetails WHERE detailsUser = :username")
+    String getWeddDate(String username);
 
     @Insert
     void insert(WeddDetails details);

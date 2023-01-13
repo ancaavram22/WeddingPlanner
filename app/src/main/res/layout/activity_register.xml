@@ -37,7 +37,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:layout_marginBottom="0dp"
+        android:layout_marginBottom="62dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -145,27 +145,6 @@
             android:padding="10dp"
             tools:ignore="SpeakableTextPresentCheck" />
 
-
-        <TextView
-            android:id="@+id/selectRole_txt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/moondancefont"
-            android:text="Select Role"
-            android:textColor="#000000"
-            android:textSize="20dp" />
-
-
-        <Spinner
-            android:id="@+id/roleSelectionSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/edit_text"
-            android:fontFamily="@font/moondancefont"
-            android:minHeight="48dp"
-            android:padding="10dp"
-            tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
             android:id="@+id/buttonRegister"

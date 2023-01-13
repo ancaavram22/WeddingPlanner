@@ -1,4 +1,4 @@
-package am.solution.weddingplanner.bottomSheetFragment;
+package am.solution.weddingplanner;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
@@ -20,14 +20,10 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import java.util.Calendar;
 import java.util.List;
 
-import am.solution.weddingplanner.ProfileFragment;
-import am.solution.weddingplanner.R;
 import am.solution.weddingplanner.data.DetailsDAO;
 import am.solution.weddingplanner.data.DetailsDataBase;
-import am.solution.weddingplanner.data.TaskDataBase;
 import am.solution.weddingplanner.data.UserDAO;
 import am.solution.weddingplanner.data.UserDataBase;
-import am.solution.weddingplanner.model.Task;
 import am.solution.weddingplanner.model.User;
 import am.solution.weddingplanner.model.WeddDetails;
 
@@ -46,8 +42,15 @@ public class WeddDetailsFragment extends BottomSheetDialogFragment {
 
     int firstInsert = 0;
     int detailsId;
-    WeddDetailsFragment activity;
 
+
+    public EditText getDate() {
+        return date;
+    }
+
+    public void setDate(EditText date) {
+        this.date = date;
+    }
 
     @SuppressLint("ClickableViewAccessibility")
     @Override

@@ -12,8 +12,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import am.solution.weddingplanner.bottomSheetFragment.ChangePassFragment;
-import am.solution.weddingplanner.bottomSheetFragment.CreateTaskBottomSheetFragment;
-import am.solution.weddingplanner.bottomSheetFragment.WeddDetailsFragment;
 
 public class ProfileFragment extends Fragment {
     TextView changePassword, wedDetails;

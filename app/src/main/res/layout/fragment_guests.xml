@@ -39,6 +39,7 @@
                 android:layout_centerInParent="true"
                 android:fontFamily="@font/moondancefont"
                 android:gravity="center"
+                android:textColor="@color/black"
                 android:text="Guests"
                 android:textSize="45dp" />
 

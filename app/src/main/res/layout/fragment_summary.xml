@@ -1,30 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#FFFFFF"
     android:orientation="vertical"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
     tools:context=".SummaryFragment">
-
-    <TextView
-        android:id="@+id/countdown_txt"
-        android:layout_width="376dp"
-        android:layout_height="53dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="131dp"
-        android:layout_marginBottom="170dp"
-        android:fontFamily="@font/moondancefont"
-        android:padding="10dp"
-        android:text="Countdown"
-        android:textAllCaps="true"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/summary2"
@@ -33,8 +17,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="3dp"
-        android:layout_marginEnd="124dp"
-        android:layout_marginBottom="581dp"
+        android:layout_marginEnd="177dp"
+        android:layout_marginBottom="635dp"
         android:fontFamily="@font/moondancefont"
         android:padding="10dp"
         android:text="Planning Summary"
@@ -50,8 +34,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="3dp"
-        android:layout_marginEnd="107dp"
-        android:layout_marginBottom="392dp"
+        android:layout_marginEnd="172dp"
+        android:layout_marginBottom="455dp"
         android:fontFamily="@font/moondancefont"
         android:padding="10dp"
         android:text="Upcoming Tasks"
@@ -59,4 +43,73 @@
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/countdown_txt"
+        android:layout_width="376dp"
+        android:layout_height="53dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="169dp"
+        android:layout_marginBottom="118dp"
+        android:fontFamily="@font/moondancefont"
+        android:padding="10dp"
+        android:text="Countdown"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <cn.iwgang.countdownview.CountdownView
+        android:id="@+id/countdownView"
+        android:layout_width="329dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="69dp"
+        app:isHideTimeBackground="false"
+        app:isShowDay="true"
+        app:isShowHour="true"
+        app:isShowMinute="true"
+        app:isShowSecond="true"
+        app:isTimeTextBold="true"
+        app:suffixDay="d"
+        app:suffixGravity="bottom"
+        app:suffixHour="h"
+        app:suffixMinute="m"
+        app:suffixSecond="s"
+        app:suffixTextColor="#000000"
+        app:suffixTextSize="12sp"
+        app:timeBgColor="@color/colorAccent"
+        app:timeBgRadius="4dp"
+        app:timeTextColor="#FFFFFF"
+        app:timeTextSize="32sp" />
+
+    <FrameLayout
+        android:layout_width="367dp"
+        android:layout_height="248dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="181dp"
+        android:background="#EDC8AE"
+        android:clipToPadding="true">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clipToOutline="true">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/taskRecycler"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </FrameLayout>
+
 </RelativeLayout>

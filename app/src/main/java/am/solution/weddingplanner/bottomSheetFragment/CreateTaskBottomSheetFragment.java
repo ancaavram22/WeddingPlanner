@@ -1,9 +1,17 @@
 package am.solution.weddingplanner.bottomSheetFragment;
 
+import static android.content.Context.ALARM_SERVICE;
+
 import android.annotation.SuppressLint;
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -12,11 +20,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import am.solution.weddingplanner.Alarms.Notification_receiver;
 import am.solution.weddingplanner.R;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
 import java.util.Calendar;
+
 import am.solution.weddingplanner.TasksFragment;
 import am.solution.weddingplanner.data.TaskDAO;
 import am.solution.weddingplanner.data.TaskDataBase;
@@ -37,6 +48,8 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
 
     int mYear, mMonth, mDay;
     int mHour, mMinute;
+    int alarmYear, alarmMonth, alarmDay;
+    int alarmHour, alarmMinute;
     TimePickerDialog timePickerDialog;
     DatePickerDialog datePickerDialog;
 
@@ -63,6 +76,8 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
         taskDao = Room.databaseBuilder(context, TaskDataBase.class, "task_db.db").allowMainThreadQueries().build().getTaskDao();
         user = (User) getActivity().getIntent().getSerializableExtra("User");
 
+        createNotificationChannel();
+
         addTaskTitle = view.findViewById(R.id.taskTitle);
         addTaskDescription = view.findViewById(R.id.taskDescription);
         addTaskDate = view.findViewById(R.id.taskDate);
@@ -88,6 +103,9 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
                 datePickerDialog = new DatePickerDialog(getActivity(),
                         (view1, year, monthOfYear, dayOfMonth) -> {
                             addTaskDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                            alarmYear = year;
+                            alarmMonth= monthOfYear;
+                            alarmDay = dayOfMonth;
                             datePickerDialog.dismiss();
                         }, mYear, mMonth, mDay);
                 datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
@@ -107,6 +125,8 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
                 timePickerDialog = new TimePickerDialog(getActivity(),
                         (view12, hourOfDay, minute) -> {
                             addTaskTime.setText(hourOfDay + ":" + minute);
+                            alarmHour=hourOfDay;
+                            alarmMinute=minute;
                             timePickerDialog.dismiss();
                         }, mHour, mMinute, false);
                 timePickerDialog.show();
@@ -168,5 +188,18 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
             return false;
         }
         else return !addTaskEvent.getText().toString().equalsIgnoreCase("");
+    }
+    private void createNotificationChannel(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        {
+            CharSequence name= "WeddingPlannerReminderChannel";
+            String description = "Channel for WeddingPlanner Reminder";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel("weddplan", name, importance);
+            channel.setDescription(description);
+
+            NotificationManager notificationManager = getActivity().getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
     }
 }

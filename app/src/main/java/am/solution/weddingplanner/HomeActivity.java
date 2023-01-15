@@ -3,6 +3,8 @@ package am.solution.weddingplanner;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import am.solution.weddingplanner.data.TaskDAO;
 import am.solution.weddingplanner.model.User;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +25,8 @@ public class HomeActivity extends AppCompatActivity {
     GuestsFragment guestsFragment = new GuestsFragment();
     VendorsFragment vendorsFragment = new VendorsFragment();
     public User user;
+    public TaskDAO tasksForCurrUser;
+    int noOfTasks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -76,7 +76,6 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
         taskDao = Room.databaseBuilder(context, TaskDataBase.class, "task_db.db").allowMainThreadQueries().build().getTaskDao();
         user = (User) getActivity().getIntent().getSerializableExtra("User");
 
-        createNotificationChannel();
 
         addTaskTitle = view.findViewById(R.id.taskTitle);
         addTaskDescription = view.findViewById(R.id.taskDescription);
@@ -189,17 +188,5 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
         }
         else return !addTaskEvent.getText().toString().equalsIgnoreCase("");
     }
-    private void createNotificationChannel(){
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-        {
-            CharSequence name= "WeddingPlannerReminderChannel";
-            String description = "Channel for WeddingPlanner Reminder";
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel = new NotificationChannel("weddplan", name, importance);
-            channel.setDescription(description);
 
-            NotificationManager notificationManager = getActivity().getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
-        }
-    }
 }

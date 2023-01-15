@@ -18,24 +18,32 @@ import android.widget.TextView;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.widget.Toast;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.room.Room;
 
 import java.util.Calendar;
 
 import am.solution.weddingplanner.Alarms.Notification_receiver;
 import am.solution.weddingplanner.bottomSheetFragment.ChangePassFragment;
+import am.solution.weddingplanner.data.UserDAO;
+import am.solution.weddingplanner.data.UserDataBase;
+import am.solution.weddingplanner.model.User;
 
 public class ProfileFragment extends Fragment {
     TextView changePassword, wedDetails;
     Button logOutButton;
     Switch notificationSwitch;
-
+    private User user;
+    private UserDAO userDao;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
        changePassword = view.findViewById(R.id.changePass);
@@ -43,8 +51,28 @@ public class ProfileFragment extends Fragment {
        logOutButton = view.findViewById(R.id.logOutButton);
        notificationSwitch = view.findViewById(R.id.notification_switch);
 
+       user = (User) getActivity().getIntent().getSerializableExtra("User");
+       userDao = Room.databaseBuilder(getContext(), UserDataBase.class, "users_new3.db").allowMainThreadQueries().build().getUserDao();
        createNotificationChannel();
        Context context = getContext();
+
+       if(getNotificationsStatus()){
+
+           notificationSwitch.setChecked(true);
+           Calendar alarmTime = Calendar.getInstance();
+           //set the time for the daily notification
+           alarmTime.setTimeInMillis(System.currentTimeMillis());
+           alarmTime.clear();
+           alarmTime.set(Calendar.HOUR_OF_DAY, 19);
+           alarmTime.set(Calendar.MINUTE, 12);
+           alarmTime.set(Calendar.SECOND, 2);
+
+           Intent intent = new Intent(context, Notification_receiver.class );
+           PendingIntent pendingIntent = PendingIntent.getBroadcast(context,0,intent,0);
+           AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(ALARM_SERVICE);
+           alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, alarmTime.getTimeInMillis(), AlarmManager.INTERVAL_DAY , pendingIntent);
+
+       }
 
         changePassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,12 +97,15 @@ public class ProfileFragment extends Fragment {
                 //turn ON the notifications
                 if(isChecked){
 
+                    Toast.makeText(context, "Notification ON!", Toast.LENGTH_SHORT).show();
+
+                    userDao.updateNotificationsStatus(true, user.getUserName());
                     Calendar alarmTime = Calendar.getInstance();
                     //set the time for the daily notification
                     alarmTime.setTimeInMillis(System.currentTimeMillis());
                     alarmTime.clear();
-                    alarmTime.set(Calendar.HOUR_OF_DAY, 17);
-                    alarmTime.set(Calendar.MINUTE, 27);
+                    alarmTime.set(Calendar.HOUR_OF_DAY, 19);
+                    alarmTime.set(Calendar.MINUTE, 12);
                     alarmTime.set(Calendar.SECOND, 2);
 
                     Intent intent = new Intent(context, Notification_receiver.class );
@@ -84,6 +115,8 @@ public class ProfileFragment extends Fragment {
                 }
                 //turn OFF the notifications
                 else{
+                    userDao.updateNotificationsStatus(false, user.getUserName());
+
                     Intent intent = new Intent(context, Notification_receiver.class );
                     PendingIntent pendingIntent = PendingIntent.getBroadcast(context,0,intent,0);
                     AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(ALARM_SERVICE);
@@ -115,6 +148,10 @@ public class ProfileFragment extends Fragment {
             NotificationManager notificationManager = getActivity().getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
         }
+    }
+
+    private boolean getNotificationsStatus(){
+        return user.isNotifications();
     }
 
 }

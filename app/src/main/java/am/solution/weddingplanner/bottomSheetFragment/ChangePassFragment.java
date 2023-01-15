@@ -46,7 +46,7 @@ public class ChangePassFragment extends BottomSheetDialogFragment {
 
         Context context = getContext();
         user = (User) getActivity().getIntent().getSerializableExtra("User");
-        userDao = Room.databaseBuilder(context, UserDataBase.class, "users_new2.db").allowMainThreadQueries().build().getUserDao();
+        userDao = Room.databaseBuilder(context, UserDataBase.class, "users_new3.db").allowMainThreadQueries().build().getUserDao();
 
 
         changePassword = view.findViewById(R.id.buttonChangePass);

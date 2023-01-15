@@ -33,17 +33,17 @@ public class MainActivity extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
 
-       textViewReset = findViewById(R.id.textViewReset);
+        textViewReset = findViewById(R.id.textViewReset);
         textViewRegister = findViewById(R.id.textViewRegister);
 
-        dataBase = Room.databaseBuilder(this, UserDataBase.class, "users_new2.db")
+        dataBase = Room.databaseBuilder(this, UserDataBase.class, "users_new3.db")
                 .allowMainThreadQueries()
                 .build();
 
         db = dataBase.getUserDao();
 
 
-       textViewRegister.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, RegisterActivity.class)));
+        textViewRegister.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, RegisterActivity.class)));
 
         textViewReset.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ResetPassByMailActivity.class)));
 
@@ -54,14 +54,6 @@ public class MainActivity extends AppCompatActivity {
                 String password = editTextPassword.getText().toString().trim();
 
                 User user = db.getUser(email, password);
-
-
-//                if (new user) {
-//                      Intent moveToWedDetails = new Intent(MainActivity.this, WeddingDetailsActivity.class);
-//                      startActivity(moveToWedDetails);
-//
-//                      then  HomeActivity
-//                }
 
                 if (user != null) {
                     Intent i = new Intent(MainActivity.this, HomeActivity.class);

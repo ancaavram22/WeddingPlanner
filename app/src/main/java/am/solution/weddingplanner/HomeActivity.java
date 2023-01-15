@@ -25,8 +25,6 @@ public class HomeActivity extends AppCompatActivity {
     GuestsFragment guestsFragment = new GuestsFragment();
     VendorsFragment vendorsFragment = new VendorsFragment();
     public User user;
-    public TaskDAO tasksForCurrUser;
-    int noOfTasks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

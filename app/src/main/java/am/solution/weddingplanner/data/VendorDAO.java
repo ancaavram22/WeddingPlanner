@@ -30,4 +30,7 @@ public interface VendorDAO {
 
     @Query("UPDATE vendor SET vendorUser = :vendorUser,  vendorName = :vendorName, paymentStatus = :paymentStatus, amount = :amount WHERE id = :vendorId")
     void updateAnExistingRow(int vendorId, String vendorUser, String vendorName, String paymentStatus, int amount);
+
+    @Query("SELECT * FROM Vendor where  vendorUser= :username AND paymentStatus=:paid ")
+    List <Vendor> getAllPaidVendors(String username, String paid);
 }

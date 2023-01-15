@@ -11,31 +11,14 @@
     tools:context=".SummaryFragment">
 
     <TextView
-        android:id="@+id/summary2"
-        android:layout_width="376dp"
-        android:layout_height="53dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="177dp"
-        android:layout_marginBottom="635dp"
-        android:fontFamily="@font/moondancefont"
-        android:padding="10dp"
-        android:text="Planning Summary"
-        android:textAllCaps="true"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:textStyle="bold" />
-
-    <TextView
         android:id="@+id/upcomingTasks"
-        android:layout_width="376dp"
-        android:layout_height="53dp"
+        android:layout_width="192dp"
+        android:layout_height="54dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="3dp"
-        android:layout_marginEnd="172dp"
-        android:layout_marginBottom="455dp"
+        android:layout_marginEnd="199dp"
+        android:layout_marginBottom="420dp"
         android:fontFamily="@font/moondancefont"
         android:padding="10dp"
         android:text="Upcoming Tasks"
@@ -51,8 +34,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="3dp"
-        android:layout_marginEnd="169dp"
-        android:layout_marginBottom="118dp"
+        android:layout_marginEnd="207dp"
+        android:layout_marginBottom="85dp"
         android:fontFamily="@font/moondancefont"
         android:padding="10dp"
         android:text="Countdown"
@@ -68,9 +51,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginBottom="69dp"
+        android:layout_marginStart="69dp"
+        android:layout_marginEnd="73dp"
+        android:layout_marginBottom="48dp"
         app:isHideTimeBackground="false"
         app:isShowDay="true"
         app:isShowHour="true"
@@ -88,6 +71,81 @@
         app:timeBgRadius="4dp"
         app:timeTextColor="#FFFFFF"
         app:timeTextSize="32sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <!--Pie chart to display the data-->
+
+        <org.eazegraph.lib.charts.PieChart
+            android:id="@+id/pie_chart"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="25dp"
+            android:padding="10dp"
+            app:egLegendTextSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="170dp"
+            android:layout_marginLeft="-20dp"
+            android:layout_weight="3"
+            android:gravity="left|center_vertical"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:layout_gravity="center_vertical">
+
+                <!--View to display the yellow color icon-->
+                <View
+                    android:layout_width="15dp"
+                    android:layout_height="match_parent"
+                    android:background="#FFDA9E48" />
+
+                <!--Text view to display R -->
+                <TextView
+                    android:id="@+id/spent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="Spent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="5dp">
+
+                <!--View to display the green color icon-->
+                <View
+                    android:layout_width="15dp"
+                    android:layout_height="match_parent"
+                    android:background="#FFECC7AD" />
+
+                <!--Text view to display python text -->
+                <TextView
+                    android:id="@+id/left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="10dp"
+                    android:text="Left" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 
     <FrameLayout
         android:layout_width="367dp"

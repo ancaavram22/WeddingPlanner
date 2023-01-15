@@ -25,6 +25,9 @@ public interface DetailsDAO {
     @Query("SELECT date FROM WeddDetails WHERE detailsUser = :username")
     String getWeddDate(String username);
 
+    @Query("SELECT budget FROM WeddDetails WHERE detailsUser = :username")
+    int getWeddBudget(String username);
+
     @Insert
     void insert(WeddDetails details);
 }

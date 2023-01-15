@@ -192,17 +192,17 @@
             <Button
                 android:id="@+id/buttonSave"
                 android:layout_width="106dp"
-                android:layout_height="150dp"
+                android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/button"
                 android:fontFamily="@font/moondancefont"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:text="Save"
+                android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:textAlignment="center"
                 app:strokeColor="@color/button" />
 
 

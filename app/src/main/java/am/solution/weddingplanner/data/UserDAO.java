@@ -19,4 +19,7 @@ public interface UserDAO {
 
     @Query("UPDATE user SET password = :newPass WHERE userName = :username")
     void updateAnExistingRow(String newPass, String username);
+
+    @Query("UPDATE user SET notifications = :status WHERE userName = :username")
+    void updateNotificationsStatus(boolean status, String username);
 }

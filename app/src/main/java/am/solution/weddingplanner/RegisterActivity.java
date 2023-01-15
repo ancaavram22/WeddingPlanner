@@ -30,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
         editPassword = findViewById(R.id.password_input);
         buttonRegister = findViewById(R.id.buttonRegister);
 
-        userDao = Room.databaseBuilder(this, UserDataBase.class, "users_new2.db").allowMainThreadQueries()
+        userDao = Room.databaseBuilder(this, UserDataBase.class, "users_new3.db").allowMainThreadQueries()
                 .build().getUserDao();
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
@@ -42,7 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String firstName = editFirstName.getText().toString().trim();
                 String lastName = editLastName.getText().toString().trim();
 
-                    User user = new User(userName,  password,email, firstName, lastName);
+                    User user = new User(userName,  password,email, firstName, lastName, false);
                     userDao.insert(user);
 
                     Intent moveToLogin = new Intent(RegisterActivity.this, MainActivity.class);

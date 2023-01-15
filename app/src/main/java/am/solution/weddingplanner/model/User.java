@@ -17,15 +17,17 @@ public class User implements Serializable {
     private String email;
     private String firstName;
     private String lastName;
+    private boolean notifications;
 
 
 
-    public User(String userName, String password, String email, String firstName, String lastName) {
+    public User(String userName, String password, String email, String firstName, String lastName, boolean notifications) {
         this.userName = userName;
         this.password = password;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.notifications = notifications;
     }
 
     @NonNull
@@ -69,15 +71,9 @@ public class User implements Serializable {
 
     public void setLastName(String lastName) {this.lastName = lastName;}
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
-    }
+
+    public boolean isNotifications() { return notifications;}
+
+    public void setNotifications(boolean notifications) {this.notifications = notifications;}
+
 }

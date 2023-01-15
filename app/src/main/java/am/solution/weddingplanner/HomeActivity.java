@@ -3,6 +3,8 @@ package am.solution.weddingplanner;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import am.solution.weddingplanner.data.TaskDAO;
 import am.solution.weddingplanner.model.User;
 
 import androidx.appcompat.app.AppCompatActivity;

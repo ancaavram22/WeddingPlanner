@@ -45,8 +45,6 @@ public class TasksFragment extends Fragment {
 
         ImageButton addTask = view.findViewById(R.id.addTaskButton);
 
-
-
         addTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

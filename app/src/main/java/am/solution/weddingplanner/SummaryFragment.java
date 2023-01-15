@@ -39,6 +39,7 @@ public class SummaryFragment extends Fragment {
 
     private TaskDAO tasksForCurrUser;
     private DetailsDAO detailsForCurrUser;
+    static int noOfTasksToDO;
     Date date;
     String testDate;
     String wedDate;
@@ -138,8 +139,9 @@ public class SummaryFragment extends Fragment {
 
         //list with tasks
         List<Task> taskList = tasksForCurrUser.getAllTasks(username);
-
+        noOfTasksToDO = taskList.size();
         return taskList;
     }
+
 
 }

@@ -83,7 +83,7 @@
         <org.eazegraph.lib.charts.PieChart
             android:id="@+id/pie_chart"
             android:layout_width="200dp"
-            android:layout_height="150dp"
+            android:layout_height="170dp"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="25dp"
             android:padding="10dp"
@@ -97,14 +97,14 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="170dp"
-            android:layout_marginLeft="-20dp"
+            android:layout_marginLeft="-10dp"
             android:layout_weight="3"
             android:gravity="left|center_vertical"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="15dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center_vertical">
 
                 <!--View to display the yellow color icon-->
@@ -117,7 +117,7 @@
                 <TextView
                     android:id="@+id/spent"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="20dp"
                     android:paddingLeft="10dp"
                     android:text="Spent" />
 
@@ -125,7 +125,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="15dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginTop="5dp">
 
@@ -139,7 +139,7 @@
                 <TextView
                     android:id="@+id/left"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="20dp"
                     android:paddingLeft="10dp"
                     android:text="Left" />
 

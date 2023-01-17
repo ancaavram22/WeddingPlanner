@@ -136,7 +136,7 @@ public class SummaryFragment extends Fragment {
 
         //get all existing task for current user
         Context context = getContext();
-        detailsForCurrUser = Room.databaseBuilder(context, DetailsDataBase.class, "details_db.db").allowMainThreadQueries().build().getDetailsDao();
+        detailsForCurrUser = Room.databaseBuilder(context, DetailsDataBase.class, "am_details.db").allowMainThreadQueries().build().getDetailsDao();
 
         testDate = detailsForCurrUser.getWeddDate(username);
         budget = detailsForCurrUser.getWeddBudget(username);
@@ -150,7 +150,7 @@ public class SummaryFragment extends Fragment {
 
         //get all existing task for current user
         Context context = getContext();
-        tasksForCurrUser = Room.databaseBuilder(context, TaskDataBase.class, "task_db.db").allowMainThreadQueries().build().getTaskDao();
+        tasksForCurrUser = Room.databaseBuilder(context, TaskDataBase.class, "am_tasks.db").allowMainThreadQueries().build().getTaskDao();
 
         //list with tasks
         List<Task> taskList = tasksForCurrUser.getAllTasks(username);
@@ -177,7 +177,7 @@ public class SummaryFragment extends Fragment {
 
         //get all existing task for current user
         Context context = getContext();
-        alreadySpentMoney = Room.databaseBuilder(context, VendorDataBase.class, "vendor_db.db").allowMainThreadQueries().build().getVendorDao();
+        alreadySpentMoney = Room.databaseBuilder(context, VendorDataBase.class, "am_vendors.db").allowMainThreadQueries().build().getVendorDao();
 
         List<Vendor> paidVendorsList = alreadySpentMoney.getAllPaidVendors(username, "Paid");
         for (int i = 0; i < paidVendorsList.size(); i++) {

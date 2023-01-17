@@ -62,8 +62,8 @@ public class WeddDetailsFragment extends BottomSheetDialogFragment {
 
         Context context = getContext();
         user = (User) getActivity().getIntent().getSerializableExtra("User");
-        userDao = Room.databaseBuilder(context, UserDataBase.class, "users_new2.db").allowMainThreadQueries().build().getUserDao();
-        detailsDao = Room.databaseBuilder(context, DetailsDataBase.class, "details_db.db").allowMainThreadQueries().build().getDetailsDao();
+        userDao = Room.databaseBuilder(context, UserDataBase.class, "am_users.db").allowMainThreadQueries().build().getUserDao();
+        detailsDao = Room.databaseBuilder(context, DetailsDataBase.class, "am_details.db").allowMainThreadQueries().build().getDetailsDao();
         List<WeddDetails> detailsList = detailsDao.getAllDetails(user.getUserName());
 
         bride = view.findViewById(R.id.bride_input);

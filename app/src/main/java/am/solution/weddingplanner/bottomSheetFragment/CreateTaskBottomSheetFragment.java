@@ -73,7 +73,7 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
         View view = inflater.inflate(R.layout.fragment_create_task, container, false);
 
         Context context = getContext();
-        taskDao = Room.databaseBuilder(context, TaskDataBase.class, "task_db.db").allowMainThreadQueries().build().getTaskDao();
+        taskDao = Room.databaseBuilder(context, TaskDataBase.class, "am_tasks.db").allowMainThreadQueries().build().getTaskDao();
         user = (User) getActivity().getIntent().getSerializableExtra("User");
 
 
@@ -186,7 +186,10 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
         else if(addTaskTime.getText().toString().equalsIgnoreCase("")) {
             return false;
         }
-        else return !addTaskEvent.getText().toString().equalsIgnoreCase("");
+        else if (addTaskEvent.getText().toString().equalsIgnoreCase("")){
+            return false;
+        }
+        return true;
     }
 
 }

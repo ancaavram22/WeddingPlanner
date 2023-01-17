@@ -119,6 +119,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/edit_text"
+            android:fontFamily="@font/moondancefont"
             android:inputType="textVisiblePassword|textNoSuggestions"
             android:minHeight="48dp"
             android:padding="10dp"

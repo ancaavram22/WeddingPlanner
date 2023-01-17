@@ -55,7 +55,7 @@ public class CreateVendorBottomSheetFragment extends BottomSheetDialogFragment {
 
 
         Context context = getContext();
-        vendorDAO = Room.databaseBuilder(context, VendorDataBase.class, "vendor_db.db").allowMainThreadQueries().build().getVendorDao();
+        vendorDAO = Room.databaseBuilder(context, VendorDataBase.class, "am_vendors.db").allowMainThreadQueries().build().getVendorDao();
         user = (User) getActivity().getIntent().getSerializableExtra("User");
 
         if(isEdit){

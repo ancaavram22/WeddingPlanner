@@ -90,7 +90,7 @@ public class GuestsFragment extends Fragment {
 
         //get all existing guests for current user
         Context context = getContext();
-        guestsForCurrUser = Room.databaseBuilder(context, GuestDataBase.class, "guest_db2.db").allowMainThreadQueries().build().getGuestDao();
+        guestsForCurrUser = Room.databaseBuilder(context, GuestDataBase.class, "am_guests.db").allowMainThreadQueries().build().getGuestDao();
 
         //list with guests
         List<Guest> guestList = guestsForCurrUser.getAllGuests(username);

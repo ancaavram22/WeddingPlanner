@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
@@ -36,12 +35,11 @@ public class MainActivity extends AppCompatActivity {
         textViewReset = findViewById(R.id.textViewReset);
         textViewRegister = findViewById(R.id.textViewRegister);
 
-        dataBase = Room.databaseBuilder(this, UserDataBase.class, "users_new3.db")
+        dataBase = Room.databaseBuilder(this, UserDataBase.class, "am_users.db")
                 .allowMainThreadQueries()
                 .build();
 
         db = dataBase.getUserDao();
-
 
         textViewRegister.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, RegisterActivity.class)));
 
@@ -50,23 +48,38 @@ public class MainActivity extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = editTextEmail.getText().toString().trim();
-                String password = editTextPassword.getText().toString().trim();
 
-                User user = db.getUser(email, password);
+                if(validateFields()) {
+                    String email = editTextEmail.getText().toString().trim();
+                    String password = editTextPassword.getText().toString().trim();
 
-                if (user != null) {
-                    Intent i = new Intent(MainActivity.this, HomeActivity.class);
-                    i.putExtra("User", user);
-                    startActivity(i);
-                    finish();
-                }else{
-                    Toast.makeText(MainActivity.this, "Unregistered user, or incorrect", Toast.LENGTH_SHORT).show();
+                    User user = db.getUser(email, password);
+
+                    if (user != null) {
+                        Intent i = new Intent(MainActivity.this, HomeActivity.class);
+                        i.putExtra("User", user);
+                        startActivity(i);
+                        finish();
+                    } else {
+                        Toast.makeText(MainActivity.this, "Unregistered user, or incorrect!", Toast.LENGTH_SHORT).show();
+                    }
                 }
+                else {
+                    Toast.makeText(MainActivity.this, "Fill all fields!", Toast.LENGTH_SHORT).show();
 
-
+                }
             }
         });
-
+    }
+    public boolean validateFields() {
+        if(editTextEmail.getText().toString().equalsIgnoreCase("")) {
+            return false;
+        }
+        else if(editTextPassword.getText().toString().equalsIgnoreCase("")) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 }

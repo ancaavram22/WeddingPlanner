@@ -85,7 +85,7 @@ public class TasksFragment extends Fragment {
 
         //get all existing task for current user
         Context context = getContext();
-        tasksForCurrUser = Room.databaseBuilder(context, TaskDataBase.class, "task_db.db").allowMainThreadQueries().build().getTaskDao();
+        tasksForCurrUser = Room.databaseBuilder(context, TaskDataBase.class, "am_tasks.db").allowMainThreadQueries().build().getTaskDao();
 
         //list with tasks
         List<Task> taskList = tasksForCurrUser.getAllTasks(username);

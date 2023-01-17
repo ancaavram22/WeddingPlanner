@@ -43,6 +43,7 @@ public class VendorsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_vendors, container, false);
+
         swipeRefreshLayout = view.findViewById(R.id.swipe_refresh);
 
         ImageButton addVendor = view.findViewById(R.id.addVendorButton);
@@ -87,7 +88,7 @@ public class VendorsFragment extends Fragment {
 
         //get all existing guests for current user
         Context context = getContext();
-        vendorsForCurrUser = Room.databaseBuilder(context, VendorDataBase.class, "vendor_db.db").allowMainThreadQueries().build().getVendorDao();
+        vendorsForCurrUser = Room.databaseBuilder(context, VendorDataBase.class, "am_vendors.db").allowMainThreadQueries().build().getVendorDao();
 
         //list with guests
         List<Vendor> vendorList = vendorsForCurrUser.getAllVendors(username);

@@ -46,7 +46,7 @@ public class ChangePassFragment extends BottomSheetDialogFragment {
 
         Context context = getContext();
         user = (User) getActivity().getIntent().getSerializableExtra("User");
-        userDao = Room.databaseBuilder(context, UserDataBase.class, "users_new3.db").allowMainThreadQueries().build().getUserDao();
+        userDao = Room.databaseBuilder(context, UserDataBase.class, "am_users.db").allowMainThreadQueries().build().getUserDao();
 
 
         changePassword = view.findViewById(R.id.buttonChangePass);
@@ -57,9 +57,9 @@ public class ChangePassFragment extends BottomSheetDialogFragment {
         changePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(validateFields()){
+                if(validateFields()== 0){
 
-                    System.out.println(user.getUserName());
+                    //System.out.println(user.getUserName());
                     userDao.updateAnExistingRow(newPassword.getText().toString(), user.getUserName());
                     Toast.makeText(context, "Password changed!", Toast.LENGTH_SHORT).show();
 
@@ -67,27 +67,42 @@ public class ChangePassFragment extends BottomSheetDialogFragment {
                     fr.replace(R.id.container, new ProfileFragment());
                     fr.commit();
                 }
+                else if(validateFields()== 1)
+                {
+                    Toast.makeText(context, "Fill all fields!", Toast.LENGTH_SHORT).show();
+                }
+                else if(validateFields()== 3)
+                {
+                    Toast.makeText(context, "Length must be at least 8!", Toast.LENGTH_SHORT).show();
+                }
+                else if(validateFields()== 2)
+                {
+                    Toast.makeText(context, "Passwords don't match!", Toast.LENGTH_SHORT).show();
+                }
+
 
             }
         });
 
-
         return view;
     }
-    public boolean validateFields() {
+    public int validateFields() {
         if(newPassword.getText().toString().equalsIgnoreCase("")) {
 
-            return false;
+            return 1;
         }
         else if(confirmNewPassword.getText().toString().equalsIgnoreCase("")) {
 
-            return false;
+            return 1;
         }
         else if((confirmNewPassword.getText().toString().equals(newPassword.getText().toString())) != true) {
-            return false;
+            return 2;
+        }
+        else if(newPassword.getText().toString().length() <8){
+            return 3;
         }
         else {
-            return true;
+            return 0;
         }
     }
 }

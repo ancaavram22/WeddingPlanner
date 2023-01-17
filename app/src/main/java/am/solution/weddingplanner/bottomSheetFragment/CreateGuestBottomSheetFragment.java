@@ -58,7 +58,7 @@ public class CreateGuestBottomSheetFragment extends BottomSheetDialogFragment {
 
 
         Context context = getContext();
-        guestDao = Room.databaseBuilder(context, GuestDataBase.class, "guest_db2.db").allowMainThreadQueries().build().getGuestDao();
+        guestDao = Room.databaseBuilder(context, GuestDataBase.class, "am_guests.db").allowMainThreadQueries().build().getGuestDao();
         user = (User) getActivity().getIntent().getSerializableExtra("User");
 
         if(isEdit){

@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
 
-        textViewReset = findViewById(R.id.textViewReset);
+      //  textViewReset = findViewById(R.id.textViewReset);
         textViewRegister = findViewById(R.id.textViewRegister);
 
         dataBase = Room.databaseBuilder(this, UserDataBase.class, "am_users.db")
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         textViewRegister.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, RegisterActivity.class)));
 
-        textViewReset.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ResetPassByMailActivity.class)));
+      //  textViewReset.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ResetPassByMailActivity.class)));
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override

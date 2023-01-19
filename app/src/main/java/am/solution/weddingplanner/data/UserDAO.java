@@ -1,14 +1,13 @@
 package am.solution.weddingplanner.data;
+
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
-import androidx.room.Update;
 
 import java.util.List;
 
 import am.solution.weddingplanner.model.User;
-import am.solution.weddingplanner.model.WeddDetails;
 
 @Dao
 public interface UserDAO {
@@ -30,4 +29,10 @@ public interface UserDAO {
 
     @Query("UPDATE user SET notifications = :status WHERE userName = :username")
     void updateNotificationsStatus(boolean status, String username);
+
+    @Query("SELECT firstName FROM User WHERE userName = :username")
+    String getFirstName(String username);
+
+    @Query("SELECT lastName FROM User WHERE userName = :username")
+    String getLastName(String username);
 }

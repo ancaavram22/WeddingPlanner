@@ -1,20 +1,14 @@
 package am.solution.weddingplanner;
 
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import android.widget.TextView;
-
-import am.solution.weddingplanner.data.TaskDAO;
-import am.solution.weddingplanner.model.User;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.google.android.material.badge.BadgeDrawable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+
+import am.solution.weddingplanner.model.User;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -42,7 +36,7 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.summary:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container,summaryFragment).commit();
                         return true;
-                    case R.id.tasks:
+                    case R.id.tasksLayout:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container,tasksFragment).commit();
                         return true;
                     case R.id.profile:

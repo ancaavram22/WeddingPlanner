@@ -8,7 +8,7 @@
     <item android:title="Tasks"
         android:icon="@drawable/ic_baseline_playlist_add_check_24"
         android:iconTint="#7A5826"
-        android:id="@+id/tasks"/>
+        android:id="@+id/tasksLayout"/>
     <item android:title="Profile"
         android:icon="@drawable/ic_baseline_person_24"
         android:iconTint="#7A5826"

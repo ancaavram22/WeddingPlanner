@@ -3,6 +3,8 @@ package am.solution.weddingplanner;
 import static android.content.Context.ALARM_SERVICE;
 
 import android.app.AlarmManager;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -15,9 +17,6 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -52,9 +51,11 @@ public class ProfileFragment extends Fragment {
        notificationSwitch = view.findViewById(R.id.notification_switch);
 
        user = (User) getActivity().getIntent().getSerializableExtra("User");
-       userDao = Room.databaseBuilder(getContext(), UserDataBase.class, "am_users.db").allowMainThreadQueries().build().getUserDao();
+        String username = user.getUserName();
+       userDao = Room.databaseBuilder(getContext(), UserDataBase.class, "users_new3.db").allowMainThreadQueries().build().getUserDao();
        createNotificationChannel();
        Context context = getContext();
+
 
        if(getNotificationsStatus()){
 
@@ -63,8 +64,8 @@ public class ProfileFragment extends Fragment {
            //set the time for the daily notification
            alarmTime.setTimeInMillis(System.currentTimeMillis());
            alarmTime.clear();
-           alarmTime.set(Calendar.HOUR_OF_DAY, 18);
-           alarmTime.set(Calendar.MINUTE, 20);
+           alarmTime.set(Calendar.HOUR_OF_DAY, 19);
+           alarmTime.set(Calendar.MINUTE, 12);
            alarmTime.set(Calendar.SECOND, 2);
 
            Intent intent = new Intent(context, Notification_receiver.class );
@@ -104,8 +105,8 @@ public class ProfileFragment extends Fragment {
                     //set the time for the daily notification
                     alarmTime.setTimeInMillis(System.currentTimeMillis());
                     alarmTime.clear();
-                    alarmTime.set(Calendar.HOUR_OF_DAY, 18);
-                    alarmTime.set(Calendar.MINUTE, 30);
+                    alarmTime.set(Calendar.HOUR_OF_DAY, 19);
+                    alarmTime.set(Calendar.MINUTE, 12);
                     alarmTime.set(Calendar.SECOND, 2);
 
                     Intent intent = new Intent(context, Notification_receiver.class );

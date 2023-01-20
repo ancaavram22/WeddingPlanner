@@ -15,7 +15,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="261dp"
         android:layout_marginBottom="645dp"
-        app:srcCompat="@drawable/login" />
+        app:srcCompat="@drawable/login"
+        tools:ignore="ImageContrastCheck" />
 
     <TextView
         android:id="@+id/appTitle"
@@ -52,11 +53,11 @@
 
         <EditText
             android:id="@+id/email_input"
+            android:fontFamily="@font/nunito_light"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/edit_text"
-            android:fontFamily="@font/moondancefont"
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:padding="10dp"
@@ -77,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/edit_text"
-            android:fontFamily="@font/moondancefont"
+            android:fontFamily="@font/nunito_light"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:padding="10dp"
@@ -98,7 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/edit_text"
-            android:fontFamily="@font/moondancefont"
+            android:fontFamily="@font/nunito_light"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:padding="10dp"
@@ -119,7 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/edit_text"
-            android:fontFamily="@font/moondancefont"
+            android:fontFamily="@font/nunito_light"
             android:inputType="textVisiblePassword|textNoSuggestions"
             android:minHeight="48dp"
             android:padding="10dp"
@@ -140,7 +141,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/edit_text"
-            android:fontFamily="@font/moondancefont"
+            android:fontFamily="@font/nunito_light"
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:padding="10dp"

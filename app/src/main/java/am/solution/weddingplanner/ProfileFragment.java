@@ -51,8 +51,8 @@ public class ProfileFragment extends Fragment {
        notificationSwitch = view.findViewById(R.id.notification_switch);
 
        user = (User) getActivity().getIntent().getSerializableExtra("User");
-        String username = user.getUserName();
-       userDao = Room.databaseBuilder(getContext(), UserDataBase.class, "users_new3.db").allowMainThreadQueries().build().getUserDao();
+       String username = user.getUserName();
+       userDao = Room.databaseBuilder(getContext(), UserDataBase.class, "am_users.db").allowMainThreadQueries().build().getUserDao();
        createNotificationChannel();
        Context context = getContext();
 
@@ -64,8 +64,8 @@ public class ProfileFragment extends Fragment {
            //set the time for the daily notification
            alarmTime.setTimeInMillis(System.currentTimeMillis());
            alarmTime.clear();
-           alarmTime.set(Calendar.HOUR_OF_DAY, 19);
-           alarmTime.set(Calendar.MINUTE, 12);
+           alarmTime.set(Calendar.HOUR_OF_DAY, 14);
+           alarmTime.set(Calendar.MINUTE, 28);
            alarmTime.set(Calendar.SECOND, 2);
 
            Intent intent = new Intent(context, Notification_receiver.class );
@@ -105,8 +105,8 @@ public class ProfileFragment extends Fragment {
                     //set the time for the daily notification
                     alarmTime.setTimeInMillis(System.currentTimeMillis());
                     alarmTime.clear();
-                    alarmTime.set(Calendar.HOUR_OF_DAY, 19);
-                    alarmTime.set(Calendar.MINUTE, 12);
+                    alarmTime.set(Calendar.HOUR_OF_DAY, 14);
+                    alarmTime.set(Calendar.MINUTE, 28);
                     alarmTime.set(Calendar.SECOND, 2);
 
                     Intent intent = new Intent(context, Notification_receiver.class );

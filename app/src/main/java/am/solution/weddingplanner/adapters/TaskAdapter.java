@@ -51,7 +51,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull TaskAdapter.MyViewHolder holder, int position) {
         Task task = taskList.get(position);
         TaskDAO taskDao;
-        taskDao = Room.databaseBuilder(context, TaskDataBase.class, "task_db.db").allowMainThreadQueries().build().getTaskDao();
+        taskDao = Room.databaseBuilder(context, TaskDataBase.class, "am_tasks.db").allowMainThreadQueries().build().getTaskDao();
 
         holder.titleOutput.setText(task.getTaskTitle());
         holder.descriptionOutput.setText(task.getTaskDescription());

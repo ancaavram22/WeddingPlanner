@@ -47,7 +47,7 @@ public class GuestAdapter extends RecyclerView.Adapter<GuestAdapter.MyViewHolder
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Guest guest = guestList.get(position);
         GuestDAO guestDao;
-        guestDao = Room.databaseBuilder(context, GuestDataBase.class, "guest_db2.db").allowMainThreadQueries().build().getGuestDao();
+        guestDao = Room.databaseBuilder(context, GuestDataBase.class, "am_guests.db").allowMainThreadQueries().build().getGuestDao();
 
         holder.guestName.setText(guest.getGuestName());
         holder.guestAvailablility.setText(guest.getGuestAvailability());

@@ -43,7 +43,7 @@ public class VendorAdapter extends RecyclerView.Adapter<VendorAdapter.MyViewHold
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Vendor vendor = vendorList.get(position);
         VendorDAO vendorDao;
-        vendorDao = Room.databaseBuilder(context, VendorDataBase.class, "vendor_db.db").allowMainThreadQueries().build().getVendorDao();
+        vendorDao = Room.databaseBuilder(context, VendorDataBase.class, "am_vendors.db").allowMainThreadQueries().build().getVendorDao();
 
         holder.vendorName.setText(vendor.getVendorName());
         holder.paymentStatus.setText(vendor.getPaymentStatus());

@@ -26,10 +26,13 @@ import java.util.List;
 import am.solution.weddingplanner.adapters.TaskAdapter;
 import am.solution.weddingplanner.data.DetailsDAO;
 import am.solution.weddingplanner.data.DetailsDataBase;
+import am.solution.weddingplanner.data.GuestDAO;
+import am.solution.weddingplanner.data.GuestDataBase;
 import am.solution.weddingplanner.data.TaskDAO;
 import am.solution.weddingplanner.data.TaskDataBase;
 import am.solution.weddingplanner.data.VendorDAO;
 import am.solution.weddingplanner.data.VendorDataBase;
+import am.solution.weddingplanner.model.Guest;
 import am.solution.weddingplanner.model.Task;
 import am.solution.weddingplanner.model.User;
 import am.solution.weddingplanner.model.Vendor;
@@ -49,17 +52,23 @@ public class SummaryFragment extends Fragment {
     private TaskDAO tasksForCurrUser;
     private DetailsDAO detailsForCurrUser;
     private VendorDAO alreadySpentMoney;
+    private GuestDAO guests;
     static int noOfTasksToDO;
     Date date;
     String testDate;
     String wedDate;
     String countDate;
+    TextView guestsConfirmedSoFar;
+    TextView guestsAwaiting;
 
     private PieChart chart;
     private int moneyLeft = 50;
     private int moneySpent = 50;
     int budget;
     int paidVendors;
+    int noOfConfirmedGuests;
+    int noOfMaximumGuests;
+    int noOfGuestsInvitedSoFar;
 
     Context context = getContext();
 
@@ -69,9 +78,14 @@ public class SummaryFragment extends Fragment {
         // Inflate the layout for this fragment
         // return inflater.inflate(R.layout.fragment_summary, container, false);
         View view = inflater.inflate(R.layout.fragment_summary, container, false);
+
+        user = (User) getActivity().getIntent().getSerializableExtra("User");
+
         chart = view.findViewById(R.id.pie_chart);
         spent =view.findViewById(R.id.spent);
         left = view.findViewById(R.id.left);
+        guestsConfirmedSoFar = view.findViewById(R.id.confirmedGuests3);
+        guestsAwaiting = view.findViewById(R.id.confirmedGuests2);
 
         swipeRefreshLayout = view.findViewById(R.id.swipe_refresh);
         CountdownView mCvCountdownView = view.findViewById(R.id.countdownView);
@@ -85,8 +99,8 @@ public class SummaryFragment extends Fragment {
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 
-        if(getDateAndBudget()!=null) {
-            countDate = getDateAndBudget()+" 00:00:00";
+        if(getWeddDetails()!=null) {
+            countDate = getWeddDetails()+" 00:00:00";
         }
         else {
         countDate ="01-01-2000 00:00:00";
@@ -126,12 +140,12 @@ public class SummaryFragment extends Fragment {
         });
         getAlreadySpentMoney();
         addToPieChart();
+        getConfirmedGuests();
         return view;
     }
 
-    private String getDateAndBudget() {
-        //get user name
-        user = (User) getActivity().getIntent().getSerializableExtra("User");
+    private String getWeddDetails() {
+
         String username = user.getUserName();
 
         //get all existing task for current user
@@ -140,12 +154,12 @@ public class SummaryFragment extends Fragment {
 
         testDate = detailsForCurrUser.getWeddDate(username);
         budget = detailsForCurrUser.getWeddBudget(username);
+        noOfMaximumGuests = detailsForCurrUser.noOfGuestsExpected(username);
         return testDate;
     }
 
     private List<Task> getSavedTasks() {
-        //get user name
-        user = (User) getActivity().getIntent().getSerializableExtra("User");
+
         String username = user.getUserName();
 
         //get all existing task for current user
@@ -172,7 +186,6 @@ public class SummaryFragment extends Fragment {
     private void getAlreadySpentMoney(){
 
         paidVendors = 0;
-        user = (User) getActivity().getIntent().getSerializableExtra("User");
         String username = user.getUserName();
 
         //get all existing task for current user
@@ -188,4 +201,30 @@ public class SummaryFragment extends Fragment {
         //System.out.println(paidVendors + "!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     }
 
+    private void getConfirmedGuests(){
+
+        noOfConfirmedGuests = 0;
+        noOfGuestsInvitedSoFar = 0;
+        String username = user.getUserName();
+
+        Context context = getContext();
+        guests = Room.databaseBuilder(context, GuestDataBase.class, "am_guests.db").allowMainThreadQueries().build().getGuestDao();
+
+        List<Guest> allGuests = guests.getAllGuests(username);
+        for (int i = 0; i < allGuests.size(); i++) {
+            Guest guest = allGuests.get(i);
+            noOfGuestsInvitedSoFar = noOfGuestsInvitedSoFar + guest.getNoOfPers();
+
+        }
+
+        List<Guest> allConfirmedGuests = guests.getAllConfirmedGuests(username, "Confirmed");
+        for (int i = 0; i < allConfirmedGuests.size(); i++) {
+            Guest guest = allConfirmedGuests.get(i);
+            noOfConfirmedGuests = noOfConfirmedGuests + guest.getNoOfPers();
+
+        }
+        guestsConfirmedSoFar.setText(noOfConfirmedGuests + "\nconfirmed" );
+        guestsAwaiting.setText(noOfGuestsInvitedSoFar-noOfConfirmedGuests + "\nawaiting" );
+
+    }
 }

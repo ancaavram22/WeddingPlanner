@@ -21,7 +21,6 @@ import java.util.List;
 import am.solution.weddingplanner.R;
 import am.solution.weddingplanner.GuestsFragment;
 import am.solution.weddingplanner.bottomSheetFragment.CreateGuestBottomSheetFragment;
-import am.solution.weddingplanner.bottomSheetFragment.CreateTaskBottomSheetFragment;
 import am.solution.weddingplanner.data.GuestDAO;
 import am.solution.weddingplanner.data.GuestDataBase;
 import am.solution.weddingplanner.model.Guest;

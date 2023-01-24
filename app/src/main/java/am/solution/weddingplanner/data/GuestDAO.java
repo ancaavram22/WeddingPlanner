@@ -16,6 +16,9 @@ public interface GuestDAO {
     @Query("SELECT * FROM Guest where  guestUser= :username ")
     List <Guest> getAllGuests( String username);
 
+    @Query("SELECT * FROM Guest where  guestUser= :username AND guestAvailability= :confirmation")
+    List <Guest> getAllConfirmedGuests( String username, String confirmation);
+
     @Insert
     void insert(Guest guest);
 

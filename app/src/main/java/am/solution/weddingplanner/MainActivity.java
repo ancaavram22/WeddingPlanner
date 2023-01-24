@@ -50,10 +50,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if(validateFields()) {
-                    String email = editTextEmail.getText().toString().trim();
+                    String username = editTextEmail.getText().toString().trim();
                     String password = editTextPassword.getText().toString().trim();
 
-                    User user = db.getUser(email, password);
+                    User user = db.getUserByUsername(username, password);
 
                     if (user != null) {
                         Intent i = new Intent(MainActivity.this, HomeActivity.class);

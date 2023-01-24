@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="130dp"
+    android:layout_height="120dp"
+    android:background="@color/white"
     app:cardCornerRadius="10dp"
     app:cardElevation="5dp"
     app:cardUseCompatPadding="true"
@@ -12,10 +13,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="270dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
@@ -24,13 +26,13 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/text"
-                android:layout_width="58dp"
-                android:layout_height="38dp"
-                android:ems="0"
-                android:inputType="textPersonName"
-                android:singleLine="false"
+                android:id="@+id/day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:alpha="0.5"
                 android:text="Amount"
+                android:textColor="@android:color/black"
                 android:textSize="10sp" />
 
             <TextView
@@ -40,7 +42,7 @@
                 android:layout_gravity="center"
                 android:text="18"
                 android:textColor="@color/colorAccent"
-                android:textSize="10sp" />
+                android:textSize="14sp" />
 
         </LinearLayout>
 
@@ -52,7 +54,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="81dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -63,18 +65,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-            </LinearLayout>
+                <TextView
+                    android:id="@+id/vendorName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    tools:text="Full house" />
 
-            <TextView
-                android:id="@+id/vendorName"
-                android:layout_width="249dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="6dp"
-                android:layout_weight="1"
-                android:singleLine="true"
-                android:textColor="@android:color/black"
-                android:textSize="20sp"
-                tools:text="Full house" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/paymentStatus"
@@ -97,15 +98,6 @@
                 tools:text="" />
 
         </LinearLayout>
-
-        <EditText
-            android:id="@+id/editTextTextPersonName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

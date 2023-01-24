@@ -32,7 +32,7 @@ import am.solution.weddingplanner.data.UserDataBase;
 import am.solution.weddingplanner.model.User;
 
 public class ProfileFragment extends Fragment {
-    TextView changePassword, wedDetails;
+    TextView changePassword, wedDetails, username;
     Button logOutButton;
     Switch notificationSwitch;
     private User user;
@@ -49,11 +49,14 @@ public class ProfileFragment extends Fragment {
        wedDetails = view.findViewById(R.id.wedDetails);
        logOutButton = view.findViewById(R.id.logOutButton);
        notificationSwitch = view.findViewById(R.id.notification_switch);
+       username = view.findViewById(R.id.username);
 
        user = (User) getActivity().getIntent().getSerializableExtra("User");
-       String username = user.getUserName();
        userDao = Room.databaseBuilder(getContext(), UserDataBase.class, "am_users.db").allowMainThreadQueries().build().getUserDao();
-       createNotificationChannel();
+       String username_str = user.getUserName();
+       username.setText("Welcome, " + username_str + "!");
+
+        createNotificationChannel();
        Context context = getContext();
 
 

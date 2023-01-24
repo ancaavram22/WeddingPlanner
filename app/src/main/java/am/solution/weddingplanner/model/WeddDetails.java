@@ -28,7 +28,6 @@ public class WeddDetails implements Serializable {
     private int noOfGuests;
 
 
-
     public WeddDetails(String detailsUser, String groom, String bride, String date, String location, int budget, int noOfGuests) {
         this.detailsUser = detailsUser;
         this.groom = groom;
